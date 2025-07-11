@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>୧୨ ଜୁଲାଇ ୨୦୨୫ - ଓଡ଼ିଆ ରାଶିଫଳ</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Oriya:wght@400;700&family=Orbitron:wght@700&display=swap');
+
+        :root {
+            --primary-glow: #ffc700;
+            --secondary-glow: #ffdf6d;
+            --sun-primary-glow: #ff00fb;
+            --sun-secondary-glow: #ea00ff;
+            --background-dark: #000;
+            --wheel-color: #192a56;
+            --text-color: #f0f0f0;
+            --first-date: #00ff00;
+            --lucky-text-color: #00ff15;
+            --patrika: #00c8ff;
+            --patrika2: #00c8ff;
+            --wheel-size: 450px;
+            --sign-size: 60px;
+            --sign-counter-rotation: 0deg;
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 900px) {
+            :root {
+                --wheel-size: 300px; /* Smaller wheel on mobile */
+                --sign-size: 45px;
+            }
+            .container {
+                grid-template-columns: 1fr; /* Stack elements vertically */
+                grid-template-rows: auto 1fr;
+                height: 95vh;
+                gap: 20px;
+                width: 100%;
+            }
+            .zodiac-container {
+                height: 350px; /* Fixed height for the wheel area */
+            }
+            .content-container {
+                padding: 1.5rem;
+                height: auto; /* Allow content to define height */
+                max-height: 55vh; /* Ensure it doesn't take up the whole screen */
+            }
+            .rashi-title { font-size: 2rem; }
+            .rashi-title .unicode-symbol { font-size: 2.2rem; }
+            .first-rashi-date { font-size: 2.5rem; }
+            .first-rashi-date2 { font-size: 2rem; }
+            .instructions-panel h1 { font-size: 2.5rem; }
+            .sign-label { display: none; } /* Hide labels on small screens to avoid clutter */
+        }
+
+
+        /* --- STAR BACKGROUND STYLES --- */
+        #star-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+            overflow: hidden;
+        }
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1px;
+            height: 1px;
+            background: transparent;
+            animation-name: anim-stars;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        #stars1 { box-shadow: 697px 186px 1px #FFF, 1375px 1778px 1px #FFF, 126px 1730px 1px #FFF, 321px 1199px 1px #FFF, 499px 1381px 1px #FFF, 1459px 135px 1px #FFF, 1282px 534px 1px #FFF, 381px 1013px 1px #FFF, 1383px 137px 1px #FFF, 1891px 630px 1px #FFF, 1202px 1583px 1px #FFF, 1508px 638px 1px #FFF, 1788px 1118px 1px #FFF, 401px 897px 1px #FFF, 1391px 1332px 1px #FFF, 444px 1863px 1px #FFF, 1146px 739px 1px #FFF, 1059px 1046px 1px #FFF, 1179px 1812px 1px #FFF, 219px 1152px 1px #FFF, 1209px 1205px 1px #FFF, 706px 1479px 1px #FFF, 801px 1989px 1px #FFF, 290px 584px 1px #FFF, 1740px 1424px 1px #FFF, 1502px 843px 1px #FFF, 735px 1999px 1px #FFF, 1632px 1046px 1px #FFF, 130px 1333px 1px #FFF, 1393px 1135px 1px #FFF; animation-duration: 150s; }
+        #stars2 { box-shadow: 1913px 436px 2px #FFF, 1284px 1766px 2px #FFF, 1403px 43px 2px #FFF, 1341px 1350px 2px #FFF, 508px 678px 2px #FFF, 1084px 512px 2px #FFF, 122px 1089px 2px #FFF, 1145px 1541px 2px #FFF, 1968px 125px 2px #FFF, 1202px 797px 2px #FFF, 1409px 1107px 2px #FFF, 1790px 1962px 2px #FFF, 421px 1638px 2px #FFF, 915px 1272px 2px #FFF, 1709px 406px 2px #FFF; animation-duration: 100s; }
+        #stars3 { box-shadow: 1062px 1714px 3px #FFF, 839px 490px 3px #FFF, 1913px 1845px 3px #FFF, 1682px 1424px 3px #FFF, 1690px 653px 3px #FFF, 34px 1069px 3px #FFF, 1055px 106px 3px #FFF, 560px 1217px 3px #FFF, 1991px 1017px 3px #FFF, 761px 1285px 3px #FFF; animation-duration: 50s; }
+        @keyframes anim-stars { from { transform: translateY(0px); } to { transform: translateY(-2000px); } }
+        /* --- END OF STAR BACKGROUND STYLES --- */
+
+        body {
+            background-color: transparent;
+            font-family: 'Noto Sans Oriya', 'Segoe UI Emoji', sans-serif;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            flex-direction: column;
+        }
+
+        .container { display: grid; grid-template-columns: 1.2fr 1fr; width: 95%; max-width: 1200px; height: 80vh; align-items: center; gap: 40px; }
+        .zodiac-container { position: relative; display: flex; align-items: center; justify-content: center; perspective: 1000px; }
+        .sun-background { position: absolute; width: calc(var(--wheel-size) * 1.2); height: calc(var(--wheel-size) * 1.2); border-radius: 50%; background: radial-gradient(circle, rgba(221, 0, 255, 0.4) 0%, rgba(255, 199, 0, 0.2) 40%, rgba(25, 42, 86, 0) 70%); z-index: 0; animation: rotate-sun 40s linear infinite; }
+        .sun-background::before { content: ''; position: absolute; top: -10%; left: -10%; width: 120%; height: 120%; border-radius: 50%; box-shadow: 0 0 60px 20px var(--sun-primary-glow), 0 0 100px 40px var(--sun-secondary-glow), inset 0 0 40px 10px var(--sun-secondary-glow); animation: sun-rashni 3s ease-in-out infinite; filter: blur(5px); }
+        @keyframes rotate-sun { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes sun-rashni { 0%, 100% { transform: scale(1); opacity: 0.6; } 50% { transform: scale(1.05); opacity: 0.8; } }
+
+        .zodiac-wheel {
+            width: var(--wheel-size);
+            height: var(--wheel-size);
+            border-radius: 50%;
+            position: relative;
+            background: var(--wheel-color);
+            border: 3px solid #fff;
+            animation: glow-wheel 2s ease-in-out infinite;
+            z-index: 2;
+            transition: transform 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        @keyframes glow-wheel {
+            0%, 100% { box-shadow: 0 0 15px rgba(255, 42, 0, 0.3), 0 0 25px 5px var(--sun-secondary-glow); }
+            50% { box-shadow: 0 0 25px rgba(255, 255, 255, 0.5), 0 0 40px 10px var(--sun-primary-glow); }
+        }
+
+        .divider { position: absolute; width: 1px; height: 100%; background: rgba(255, 255, 255, 0.5); left: 50%; top: 0; transform-origin: center; }
+        
+        .wheel-center {
+            position: absolute;
+            width: 55%;
+            height: 55%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(var(--sign-counter-rotation));
+            transition: transform 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            background: radial-gradient(circle, #00ff00, #1100ff); 
+            border: 3px solid rgb(255, 255, 255);           
+            border-radius: 50%;            
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #active-sign-display { font-size: 7rem; opacity: 0; transform: scale(0.5); transition: opacity 0.4s ease, transform 0.4s ease; text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4); line-height: 1; }
+        #active-sign-display.visible { opacity: 1; transform: scale(1); }
+        @media (max-width: 900px) { #active-sign-display { font-size: 5rem; } }
+
+
+        .sign, .sign-label {
+            position: absolute;
+            z-index: 5;
+            pointer-events: none;
+            transform: rotate(var(--sign-counter-rotation));
+            transition: transform 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55), color 0.5s ease, text-shadow 0.5s ease, background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .sign {
+            width: var(--sign-size);
+            height: var(--sign-size);
+            margin-left: calc(var(--sign-size) / -2);
+            margin-top: calc(var(--sign-size) / -2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: calc(var(--sign-size) * 0.7);
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(2px);
+            box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5), 0 0 12px rgba(0, 200, 255, 0.4);
+        }
+
+        .sign-label { color: #00fbff; width: 60px; text-align: center; margin-left: -30px; margin-top: -12px; font-size: 1.1rem; font-weight: bold; }
+        
+        .sign.highlight {
+            text-shadow: 0 0 12px #ffeb3b, 0 0 20px #ffc107;
+            transform: rotate(var(--sign-counter-rotation)) scale(1.3);
+            background: rgba(255, 199, 0, 0.2);
+            border-color: var(--secondary-glow);
+            box-shadow: 0 0 20px var(--primary-glow);
+        }
+        .sign-label.highlight { 
+            color: #2bff00;        
+            text-shadow: 0 0 12px #2bff00, 0 0 20px #00ff00;
+            }
+
+        .content-container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            backdrop-filter: blur(6px);
+            background: rgba(10, 10, 20, 0.55);
+            border-radius: 15px;
+            border: 3px solid rgba(255, 200, 0, 0.781);
+            padding: 2.2rem;
+            box-shadow: 
+                0 0 50px rgba(221, 255, 0, 0.559), 
+                inset 0 0 15px rgba(255, 199, 0, 0.15),
+                inset 0 0 40px rgba(0, 0, 0, 0.5);
+            overflow-y: auto;
+        }
+
+        .content-panel { display: none; opacity: 0; animation: fadeIn 1s forwards; text-align: left; }
+        .content-panel.active { display: block; }
+        @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } from { opacity: 0; transform: translateY(20px); } }
+        
+        .rashi-date { font-size: 2.0rem; font-weight: bold; color: var(--secondary-glow); margin: 0 0 15px 0; padding-bottom: 15px; border-bottom: 1px solid rgba(255, 199, 0, 0.3); }
+        .first-rashi-date { font-size: 4.0rem; color: var(--first-date); margin-bottom: 10px; text-align: center; text-shadow: 0 0 10px var(--primary-glow); }
+        .first-rashi-date2 { font-size: 3.0rem; color: var(--first-date); text-align: center; margin-bottom: 10px; text-shadow: 0 0 8px var(--primary-glow); }
+        .rashi-title { font-family: 'Orbitron', sans-serif; color: var(--primary-glow); font-size: 2.8rem; margin: 0; text-shadow: 0 0 12px var(--primary-glow); }
+        .rashi-title .unicode-symbol { font-size: 3.2rem; margin-right: 15px; vertical-align: middle; filter: drop-shadow(0 0 8px var(--primary-glow)); }
+        .rashi-luck { font-size: 1rem; opacity: 0.8; margin-top: 25px; color: var(--lucky-text-color); font-weight: bold; }
+        .english-name { font-size: 1.6rem; color: var(--secondary-glow); opacity: 0.9; font-weight: normal; margin-left: 8px; vertical-align: middle; }
+        .rashi-description { font-size: 1.1rem; line-height: 1.6; margin-top: 20px; }
+        .pratikar { font-weight: bold; color: var(--patrika); margin-top: 25px; }
+        
+        .instructions-panel { text-align: center; padding: 20px; }
+        .instructions-panel h1 { font-family: 'Orbitron', sans-serif; font-size: 3rem; color: var(--primary-glow); text-shadow: 0 0 15px var(--primary-glow); }
+        .instructions-panel p { font-size: 1.2rem; color: #dddddd; }
+        .instructions-panel .keys { margin-top: 20px; font-size: 1.4rem; color: var(--secondary-glow); font-family: monospace; }
+        .keys span { border: 1px solid var(--secondary-glow); padding: 5px 10px; border-radius: 5px; margin: 0 5px; }
+
+    </style>
+</head>
+<body>
+    <audio id="background-audio" src="audio1.mp3" loop></audio>
+    <audio id="keypress-audio" src="audio2.mp3"></audio>
+
+    <div id="star-background">
+        <div id="stars1" class="stars"></div>
+        <div id="stars2" class="stars"></div>
+        <div id="stars3" class="stars"></div>
+    </div>
+
+    <div class="container" id="main-container" style="display:none;">
+        <div class="zodiac-container">
+            <div class="sun-background"></div> 
+            <div class="zodiac-wheel" id="zodiac-wheel"></div>
+        </div>
+        <div class="content-container">
+            <div class="content-panel" id="panel-A">
+                <h1 class="first-rashi-date">୧୨ ଜୁଲାଇ ୨୦୨୫</h1>
+                <h1 class="first-rashi-date2">ଶନିବାର</h1>
+                <h1 class="rashi-title" style="font-size: 2rem;">ଓଡ଼ିଶା ପାଞ୍ଜି ଅନୁସାରେ ରାଶିଫଳ</h1>
+                <p class="rashi-date">ତାରିଖ: ୧୨ ଜୁଲାଇ ୨୦୨୫, ଶନିବାର</p>
+                <p class="rashi-description" style="font-size: 1.2rem; margin-top: 10px;">
+                    <b>ତିଥି:</b> ଆଷାଢ କୃଷ୍ଣ ପକ୍ଷ ପ୍ରତିପଦା<br>
+                    <b>ନକ୍ଷତ୍ର:</b> ଉତ୍ତରାଷାଢା<br>
+                    <b>ଚନ୍ଦ୍ର ରାଶି:</b> ମକର ରାଶି
+                </p>
+                <p class="pratikar" style="font-size:1.1rem">ଆଜି ଶନିବାର ହୋଇଥିବାରୁ, ଭଗବାନ ଶନିଙ୍କୁ ସ୍ମରଣ କରିବା ଓ ଅସହାୟଙ୍କୁ ସାହାଯ୍ୟ କରିବା ଦ୍ୱାରା ଶୁଭ ଫଳ ପ୍ରାପ୍ତ ହେବ ।</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-panel active" id="instructions-panel">
+        <div class="instructions-panel">
+            <h1>ରାଶିଫଳକୁ ସ୍ୱାଗତ</h1>
+            <p>ପ୍ରାରମ୍ଭ ପାଇଁ ସ୍କ୍ରିନରେ ଟ୍ୟାପ୍ କରନ୍ତୁ</p>
+            <p style="margin-top: 20px;">ପରବର୍ତ୍ତୀ ରାଶି ପାଇଁ ଡବଲ୍ ଟ୍ୟାପ୍ କରନ୍ତୁ କିମ୍ବା ବାମକୁ ସ୍ୱାଇପ୍ କରନ୍ତୁ</p>
+            <p style="margin-top: 40px; font-size: 1rem;">କିବୋର୍ଡ୍ ବ୍ୟବହାରକାରୀ:<br> ମେଷ(1), ବୃଷ(2), ମିଥୁନ(3), କର୍କଟ(4), ସିଂହ(5), କନ୍ୟା(6), ତୁଳା(7), ବିଛା(8), ଧନୁ(9), ମକର(0), କୁମ୍ଭ(-), ମୀନ(=)</p>
+        </div>
+    </div>
+
+    <script>
+        const rashiData = [
+            { key: '1', name: 'ମେଷ ରାଶି', eng: 'Aries', unicode: '🐏', color: 'ନାଲି', number: 9, details: 'ଆଜି ଆପଣଙ୍କ ଆତ୍ମବିଶ୍ୱାସ ବୃଦ୍ଧି ପାଇବ । କର୍ମକ୍ଷେତ୍ରରେ ନୂଆ ଦାୟିତ୍ୱ ମିଳିପାରେ ଏବଂ ଆପଣଙ୍କ କାର୍ଯ୍ୟକୁ ପ୍ରଶଂସା କରାଯିବ । ବ୍ୟବସାୟରେ ଲାଭର ସମ୍ଭାବନା ରହିଛି । ପାରିବାରିକ ଜୀବନ ସୁଖମୟ ହେବ । ସ୍ୱାସ୍ଥ୍ୟ ପ୍ରତି ଧ୍ୟାନ ଦିଅନ୍ତୁ ।', remedy: 'ପ୍ରତିକାର: ହନୁମାନ ଚାଳିଶା ପାଠ କରନ୍ତୁ ।' },
+            { key: '2', name: 'ବୃଷ ରାଶି', eng: 'Taurus', unicode: '🐂', color: 'ଧଳା', number: 6, details: 'ଆଜି ଆପଣଙ୍କ ଆର୍ଥିକ ସ୍ଥିତିରେ ସୁଧାର ଆସିବ । ଅଟକି ରହିଥିବା କାର୍ଯ୍ୟ ପୂରଣ ହେବ । ପରିବାର ସହିତ ସମୟ ବିତାଇବାର ସୁଯୋଗ ମିଳିବ । ଛାତ୍ରଛାତ୍ରୀମାନେ ପରୀକ୍ଷାରେ ଭଲ ଫଳାଫଳ ପାଇବେ । ପ୍ରେମ ସମ୍ପର୍କ ମଧୁର ହେବ ।', remedy: 'ପ୍ରତିକାର: ମା\' ଲକ୍ଷ୍ମୀଙ୍କୁ ପୂଜା କରନ୍ତୁ ।' },
+            { key: '3', name: 'ମିଥୁନ ରାଶି', eng: 'Gemini', unicode: '👫', color: 'ସବୁଜ', number: 5, details: 'ଆଜି ଦିନଟି ଆପଣଙ୍କ ପାଇଁ ମିଶ୍ରିତ ଫଳ ପ୍ରଦାନ କରିବ । କର୍ମକ୍ଷେତ୍ରରେ କିଛି ଚ୍ୟାଲେଞ୍ଜର ସାମ୍ନା କରିବାକୁ ପଡିପାରେ, କିନ୍ତୁ ଧୈର୍ଯ୍ୟର ସହ କାମ କଲେ ସଫଳତା ମିଳିବ । କଥାବାର୍ତ୍ତା ଉପରେ ନିୟନ୍ତ୍ରଣ ରଖନ୍ତୁ । ସ୍ୱାସ୍ଥ୍ୟ ଭଲ ରହିବ ।', remedy: 'ପ୍ରତିକାର: ଗାଈକୁ ସବୁଜ ଘାସ ଖାଇବାକୁ ଦିଅନ୍ତୁ ।' },
+            { key: '4', name: 'କର୍କଟ ରାଶି', eng: 'Cancer', unicode: '🦀', color: 'କ୍ରିମ୍', number: 2, details: 'ଆଜି ଆପଣଙ୍କ ମନ ପ୍ରଫୁଲ୍ଲ ରହିବ । ପରିବାରରେ କୌଣସି ଶୁଭ କାର୍ଯ୍ୟର ଆୟୋଜନ ହୋଇପାରେ । ସାମାଜିକ ପ୍ରତିଷ୍ଠା ବୃଦ୍ଧି ପାଇବ । ଅଚାନକ ଧନ ଲାଭର ଯୋଗ ରହିଛି । ଦୂର ଯାତ୍ରା କରିବାର ସମ୍ଭାବନା ଅଛି ।', remedy: 'ପ୍ରତିକାର: ଭଗବାନ ଶିବଙ୍କୁ ଜଳ ଅର୍ପଣ କରନ୍ତୁ ।' },
+            { key: '5', name: 'ସିଂହ ରାଶି', eng: 'Leo', unicode: '🦁', color: 'କମଳା', number: 1, details: 'ଆଜି ଆପଣଙ୍କର ଦିନଟି ଶୁଭମୟ ହେବ । କର୍ମକ୍ଷେତ୍ରରେ ଉଚ୍ଚ ଅଧିକାରୀଙ୍କ ସହଯୋଗ ମିଳିବ । ଆପଣଙ୍କର ନେତୃତ୍ୱ ନେବାର କ୍ଷମତା ପ୍ରକାଶ ପାଇବ । ବ୍ୟବସାୟରେ ନୂଆ ନିବେଶ ପାଇଁ ଦିନଟି ଭଲ । ସ୍ୱାସ୍ଥ୍ୟ ଉତ୍ତମ ରହିବ ।', remedy: 'ପ୍ରତିକାର: ସୂର୍ଯ୍ୟ ଦେବଙ୍କୁ ଅର୍ଘ୍ୟ ଦିଅନ୍ତୁ ।' },
+            { key: '6', name: 'କନ୍ୟା ରାଶି', eng: 'Virgo', unicode: '💃🏽', color: 'ଗାଢ ସବୁଜ', number: 5, details: 'ଆଜି ଆପଣଙ୍କୁ ନିଜ ପରିଶ୍ରମର ଉଚିତ୍ ଫଳ ମିଳିବ । କୌଣସି ପୁରୁଣା ସମସ୍ୟାର ସମାଧାନ ହେବ । ଆର୍ଥିକ ଦୃଷ୍ଟିରୁ ଦିନଟି ଭଲ । ଛାତ୍ରଛାତ୍ରୀମାନେ ଶିକ୍ଷା କ୍ଷେତ୍ରରେ ସଫଳତା ପାଇବେ । ପାରିବାରିକ ଜୀବନ ଶାନ୍ତିପୂର୍ଣ୍ଣ ରହିବ ।', remedy: 'ପ୍ରତିକାର: ଭଗବାନ ଗଣେଶଙ୍କୁ ଦୂବ ଅର୍ପଣ କରନ୍ତୁ ।' },
+            { key: '7', name: 'ତୁଳା ରାଶି', eng: 'Libra', unicode: '⚖️', color: 'ଗୋଲାପୀ', number: 6, details: 'ଆଜି ଦିନଟି ଆପଣଙ୍କ ପାଇଁ ସାମାନ୍ୟ ରହିବ । କୌଣସି ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ନିଷ୍ପତ୍ତି ନେବା ପୂର୍ବରୁ ଭଲ ଭାବରେ ଚିନ୍ତା କରନ୍ତୁ । ବ୍ୟବସାୟରେ ସାବଧାନତା ଅବଲମ୍ବନ କରନ୍ତୁ । ଦାମ୍ପତ୍ୟ ଜୀବନରେ ମଧୁରତା ବଜାୟ ରହିବ । ସ୍ୱାସ୍ଥ୍ୟ ପ୍ରତି ଯତ୍ନବାନ ହୁଅନ୍ତୁ ।', remedy: 'ପ୍ରତିକାର: ଜଣେ ଅସହାୟ ବ୍ୟକ୍ତିଙ୍କୁ ସାହାଯ୍ୟ କରନ୍ତୁ ।' },
+            { key: '8', name: 'ବିଛା ରାଶି', eng: 'Scorpio', unicode: '🦂', color: 'ମେରୁନ୍', number: 9, details: 'ଆଜି ଆପଣଙ୍କୁ କୌଣସି ଶୁଭ ସମ୍ବାଦ ମିଳିପାରେ । କର୍ମକ୍ଷେତ୍ରରେ ଆପଣଙ୍କ କାମର ପ୍ରଶଂସା ହେବ ଏବଂ ପଦୋନ୍ନତିର ସମ୍ଭାବନା ରହିଛି । ଗୁପ୍ତ ଶତ୍ରୁମାନଙ୍କଠାରୁ ସତର୍କ ରୁହନ୍ତୁ । ଆର୍ଥିକ ସ୍ଥିତି ମଜବୁତ ହେବ ।', remedy: 'ପ୍ରତିକାର: ସୁନ୍ଦରାକାଣ୍ଡ ପାଠ କରନ୍ତୁ ।' },
+            { key: '9', name: 'ଧନୁ ରାଶି', eng: 'Sagittarius', unicode: '🏹', color: 'ହଳଦିଆ', number: 3, details: 'ଆଜି ଆପଣଙ୍କର ଆଧ୍ୟାତ୍ମିକ କାର୍ଯ୍ୟରେ ମନ ଲାଗିବ । ଧାର୍ମିକ ଯାତ୍ରାର ଯୋଗ ରହିଛି । କାର୍ଯ୍ୟକ୍ଷେତ୍ରରେ ସ୍ଥିରତା ଆସିବ । ପରିବାରର ସଦସ୍ୟଙ୍କ ସହଯୋଗ ମିଳିବ । ଛାତ୍ରମାନଙ୍କ ପାଇଁ ଦିନଟି ଅନୁକୂଳ ରହିବ ।', remedy: 'ପ୍ରତିକାର: କପାଳରେ ହଳଦୀ ତିଳକ ଲଗାନ୍ତୁ ।' },
+            { key: '0', name: 'ମକର ରାଶି', eng: 'Capricorn', unicode: '🐐', color: 'କଳା', number: 8, details: 'ଆଜି ଆପଣଙ୍କ ପାଇଁ ଦିନଟି ବ୍ୟସ୍ତତା ଭରା ରହିବ । କାର୍ଯ୍ୟଭାର ଅଧିକ ରହିପାରେ, କିନ୍ତୁ ଆପଣ ସଫଳତାର ସହ ସବୁ କାମ ସମ୍ପନ୍ନ କରିବେ । ସମ୍ପତ୍ତି ସମ୍ବନ୍ଧୀୟ ମାମଲାରେ ସଫଳତା ମିଳିପାରେ । ସ୍ୱାସ୍ଥ୍ୟ ଭଲ ରହିବ ।', remedy: 'ପ୍ରତିକାର: ଶନି ମନ୍ଦିରରେ ସୋରିଷ ତେଲ ଦାନ କରନ୍ତୁ ।' },
+            { key: '-', name: 'କୁମ୍ଭ ରାଶି', eng: 'Aquarius', unicode: '🏺', color: 'ନୀଳ', number: 8, details: 'ଆଜି ଆପଣ ନୂଆ ଲୋକଙ୍କ ସହ ମିଶିବେ, ଯାହା ଭବିଷ୍ୟତରେ ଲାଭଦାୟକ ହେବ । ବ୍ୟବସାୟରେ ନୂଆ ଯୋଜନା କାର୍ଯ୍ୟକାରୀ କରିପାରନ୍ତି । ବନ୍ଧୁମାନଙ୍କ ସହଯୋଗ ମିଳିବ । ପ୍ରେମ ଜୀବନରେ ସକାରାତ୍ମକ ପରିବର୍ତ୍ତନ ଆସିବ ।', remedy: 'ପ୍ରତିକାର: ଗରିବ ଲୋକଙ୍କୁ କଳା ଜିନିଷ ଦାନ କରନ୍ତୁ ।' },
+            { key: '=', name: 'ମୀନ ରାଶି', eng: 'Pisces', unicode: '🐟', color: 'ହଳଦିଆ', number: 3, details: 'ଆଜି ଆପଣଙ୍କ ମାନ-ସମ୍ମାନରେ ବୃଦ୍ଧି ଘଟିବ । କର୍ମକ୍ଷେତ୍ରରେ ଆପଣଙ୍କ ପରାମର୍ଶକୁ ଗୁରୁତ୍ୱ ଦିଆଯିବ । ଆର୍ଥିକ ଦୃଷ୍ଟିରୁ ଦିନଟି ଲାଭଦାୟକ ରହିବ । ପାରିବାରିକ ବାତାବରଣ ଆନନ୍ଦମୟ ରହିବ । ସ୍ୱାସ୍ଥ୍ୟ ଉତ୍ତମ ରହିବ ।', remedy: 'ପ୍ରତିକାର: ଭଗବାନ ବିଷ୍ଣୁଙ୍କୁ ପୂଜା କରନ୍ତୁ ।' },
+        ];
+
+        // --- GLOBAL VARIABLES ---
+        const displayDate = '୧୨ ଜୁଲାଇ ୨୦୨୫, ଶନିବାର';
+        const wheel = document.getElementById('zodiac-wheel');
+        const contentContainer = document.querySelector('.content-container');
+        let wheelSize = 300; // Default mobile size, will be updated
+        let angleIncrement = 360 / rashiData.length;
+
+        const backgroundAudio = document.getElementById('background-audio');
+        const keypressAudio = document.getElementById('keypress-audio');
+
+        let continuousSpinInterval = null;
+        let currentRotation = 0;
+        let currentRashiIndex = -1; // -1 for initial 'A' state, 0-11 for rashis
+
+        function setupWheel() {
+            wheelSize = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--wheel-size'));
+            angleIncrement = 360 / rashiData.length;
+
+            wheel.innerHTML = '';
+            contentContainer.querySelectorAll('.content-panel:not(#panel-A)').forEach(p => p.remove());
+
+            const center = document.createElement('div');
+            center.className = 'wheel-center';
+            const activeDisplay = document.createElement('div');
+            activeDisplay.id = 'active-sign-display';
+            center.appendChild(activeDisplay);
+            wheel.appendChild(center);
+
+            for (let i = 0; i < 6; i++) {
+                const divider = document.createElement('div');
+                divider.className = 'divider';
+                divider.style.transform = `rotate(${i * 30}deg)`;
+                wheel.appendChild(divider);
+            }
+            
+            const iconRadius = wheelSize / 2 * 0.79; 
+            const labelRadius = wheelSize / 2 + 40;
+
+            rashiData.forEach((rashi, i) => {
+                const angleRad = (i * angleIncrement - 90) * (Math.PI / 180);
+                
+                const iconX = iconRadius * Math.cos(angleRad) + wheelSize / 2;
+                const iconY = iconRadius * Math.sin(angleRad) + wheelSize / 2;
+                const signEl = document.createElement('div');
+                signEl.className = 'sign';
+                signEl.id = `sign-${i}`;
+                signEl.innerHTML = rashi.unicode;
+                signEl.style.left = `${iconX}px`;
+                signEl.style.top = `${iconY}px`;
+                wheel.appendChild(signEl);
+
+                if (window.innerWidth > 900) { // Only add labels on larger screens
+                    const labelX = labelRadius * Math.cos(angleRad) + wheelSize / 2;
+                    const labelY = labelRadius * Math.sin(angleRad) + wheelSize / 2;
+                    const labelEl = document.createElement('div');
+                    labelEl.className = 'sign-label';
+                    labelEl.id = `label-${i}`;
+                    labelEl.innerText = rashi.name.split(' ')[0];
+                    labelEl.style.left = `${labelX}px`;
+                    labelEl.style.top = `${labelY}px`;
+                    wheel.appendChild(labelEl);
+                }
+                
+                const panelEl = document.createElement('div');
+                panelEl.className = 'content-panel';
+                panelEl.id = `panel-${rashi.key}`;
+                panelEl.innerHTML = `
+                    <p class="rashi-date">ତାରିଖ: ${displayDate}</p>
+                    <h1 class="rashi-title"><span class="unicode-symbol">${rashi.unicode}</span>${rashi.name} <span class="english-name">(${rashi.eng})</span></h1>
+                    <p class="rashi-description">${rashi.details}</p>
+                    <p class="pratikar">${rashi.remedy}</p>
+                    <p class="rashi-luck">ଶୁଭ ରଙ୍ଗ: ${rashi.color}<br>ଶୁଭ ସଂଖ୍ୟା: ${rashi.number}</p>
+                `;
+                contentContainer.appendChild(panelEl);
+            });
+        }
+        
+        // --- CORE FUNCTION TO SELECT AND DISPLAY RASHI ---
+        function selectRashi(key) {
+            const instructionsPanel = document.getElementById('instructions-panel');
+            const mainContainer = document.getElementById('main-container');
+            const activeSignDisplay = document.getElementById('active-sign-display');
+
+            if (instructionsPanel.classList.contains('active')) {
+                if (key !== 'a') return;
+                backgroundAudio.play().catch(e => console.log("Audio play failed"));
+                instructionsPanel.classList.remove('active');
+                instructionsPanel.style.display = 'none';
+                mainContainer.style.display = 'grid';
+                mainContainer.style.animation = 'fadeIn 0.5s';
+            }
+            
+            clearInterval(continuousSpinInterval);
+            wheel.style.transition = 'transform 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55)';
+            document.querySelectorAll('.sign, .sign-label, .wheel-center').forEach(el => el.style.transition = 'transform 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55)');
+
+            activeSignDisplay.classList.remove('visible');
+            document.querySelectorAll('.content-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.sign, .sign-label').forEach(el => el.classList.remove('highlight'));
+            
+            const rashiIndex = rashiData.findIndex(r => r.key === key);
+            
+            if (rashiIndex > -1) {
+                currentRashiIndex = rashiIndex; // Update the current index
+                keypressAudio.currentTime = 0;
+                keypressAudio.play();
+                currentRotation = -(rashiIndex * angleIncrement);
+                document.getElementById(`panel-${key}`).classList.add('active');
+                document.getElementById(`sign-${rashiIndex}`).classList.add('highlight');
+                if (document.getElementById(`label-${rashiIndex}`)) {
+                    document.getElementById(`label-${rashiIndex}`).classList.add('highlight');
+                }
+                setTimeout(() => {
+                    activeSignDisplay.innerHTML = rashiData[rashiIndex].unicode;
+                    activeSignDisplay.classList.add('visible');
+                }, 200);
+            } else if (key === 'a') {
+                currentRashiIndex = -1; // Reset index for 'A' state
+                currentRotation = 0;
+                document.getElementById('panel-A').classList.add('active');
+                setTimeout(() => {
+                    activeSignDisplay.innerHTML = '🛕';
+                    activeSignDisplay.classList.add('visible');
+                }, 200);
+            } else {
+                return;
+            }
+
+            wheel.style.transform = `rotate(${currentRotation}deg)`;
+            document.documentElement.style.setProperty('--sign-counter-rotation', `${-currentRotation}deg`);
+            
+            setTimeout(() => {
+                wheel.style.transition = 'none';
+                document.querySelectorAll('.sign, .sign-label, .wheel-center').forEach(el => el.style.transition = 'none');
+                continuousSpinInterval = setInterval(() => {
+                    currentRotation += 0.20;
+                    wheel.style.transform = `rotate(${currentRotation}deg)`;
+                    document.documentElement.style.setProperty('--sign-counter-rotation', `${-currentRotation}deg`);
+                }, 16);
+            }, 1300);
+        }
+
+        // --- KEYBOARD EVENT LISTENER ---
+        document.addEventListener('keydown', (e) => {
+            selectRashi(e.key.toLowerCase());
+        });
+
+        // --- TOUCH EVENT LISTENERS FOR MOBILE ---
+        let lastTapTime = 0;
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+            
+            const currentTime = new Date().getTime();
+            const timeSinceLastTap = currentTime - lastTapTime;
+
+            if (timeSinceLastTap < 300 && timeSinceLastTap > 0) {
+                // This is a DOUBLE TAP
+                e.preventDefault(); // Prevent zoom
+                const instructionsPanel = document.getElementById('instructions-panel');
+                if (!instructionsPanel.classList.contains('active')) {
+                    const nextIndex = (currentRashiIndex + 1) % rashiData.length;
+                    selectRashi(rashiData[nextIndex].key);
+                }
+            }
+            lastTapTime = currentTime;
+        }, { passive: false });
+
+        document.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleGesture();
+        });
+
+        function handleGesture() {
+            const instructionsPanel = document.getElementById('instructions-panel');
+            const diffX = touchEndX - touchStartX;
+            const diffY = touchEndY - touchStartY;
+            
+            if (Math.abs(diffX) < 10 && Math.abs(diffY) < 10) {
+                // This is a SINGLE TAP
+                if (instructionsPanel.classList.contains('active')) {
+                    selectRashi('a');
+                }
+                return;
+            }
+            
+            if (Math.abs(diffX) > Math.abs(diffY)) {
+                 // This is a horizontal swipe
+                if (instructionsPanel.classList.contains('active')) return;
+                 
+                if (diffX > 50) {
+                    // Swipe Right (Previous)
+                    const prevIndex = (currentRashiIndex - 1 + rashiData.length) % rashiData.length;
+                    selectRashi(rashiData[prevIndex].key);
+                } else if (diffX < -50) {
+                    // Swipe Left (Next)
+                    const nextIndex = (currentRashiIndex + 1) % rashiData.length;
+                    selectRashi(rashiData[nextIndex].key);
+                }
+            }
+        }
+        
+        // --- RUN INITIAL SETUP ---
+        setupWheel();
+        window.addEventListener('resize', setupWheel); // Re-run setup on resize for responsiveness
+
+    </script>
+</body>
+</html>
