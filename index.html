@@ -15,72 +15,43 @@
             --background-dark: #000;
             --wheel-color: #192a56;
             --text-color: #f0f0f0;
-            --first-date: #00ff00;
-            --lucky-text-color: #00ff15;
+            --first-date: #2bff00;
+            --lucky-text-color: #09ff00;
             --patrika: #00c8ff;
-            --patrika2: #00c8ff;
             --wheel-size: 450px;
             --sign-size: 60px;
             --sign-counter-rotation: 0deg;
         }
 
-        /* Responsive adjustments for smaller screens */
+        /* Responsive adjustments */
         @media (max-width: 900px) {
             :root {
-                --wheel-size: 300px; /* Smaller wheel on mobile */
+                --wheel-size: 300px;
                 --sign-size: 45px;
             }
             .container {
-                grid-template-columns: 1fr; /* Stack elements vertically */
+                grid-template-columns: 1fr;
                 grid-template-rows: auto 1fr;
-                height: 95vh;
+                height: auto;
                 gap: 20px;
                 width: 100%;
             }
-            .zodiac-container {
-                height: 350px; /* Fixed height for the wheel area */
-            }
-            .content-container {
-                padding: 1.5rem;
-                height: auto; /* Allow content to define height */
-                max-height: 55vh; /* Ensure it doesn't take up the whole screen */
-            }
+            .zodiac-container { height: 350px; }
+            .content-container { padding: 1.5rem; height: auto; max-height: 50vh; }
             .rashi-title { font-size: 2rem; }
-            .rashi-title .unicode-symbol { font-size: 2.2rem; }
-            .first-rashi-date { font-size: 2.5rem; }
-            .first-rashi-date2 { font-size: 2rem; }
-            .instructions-panel h1 { font-size: 2.5rem; }
-            .sign-label { display: none; } /* Hide labels on small screens to avoid clutter */
+            .sign-label { display: none; }
+            /* MODIFIED: Responsive top banner */
+            #top-date-banner { font-size: 1.8rem; padding: 8px; margin-bottom: 15px; }
+            body { padding-top: 1vh; }
         }
 
-
-        /* --- STAR BACKGROUND STYLES --- */
-        #star-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
-            overflow: hidden;
-        }
-        .stars {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 1px;
-            height: 1px;
-            background: transparent;
-            animation-name: anim-stars;
-            animation-timing-function: linear;
-            animation-iteration-count: infinite;
-        }
+        /* Star background unchanged */
+        #star-background { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%); overflow: hidden; }
+        .stars { position: absolute; top: 0; left: 0; width: 1px; height: 1px; background: transparent; animation-name: anim-stars; animation-timing-function: linear; animation-iteration-count: infinite; }
         #stars1 { box-shadow: 697px 186px 1px #FFF, 1375px 1778px 1px #FFF, 126px 1730px 1px #FFF, 321px 1199px 1px #FFF, 499px 1381px 1px #FFF, 1459px 135px 1px #FFF, 1282px 534px 1px #FFF, 381px 1013px 1px #FFF, 1383px 137px 1px #FFF, 1891px 630px 1px #FFF, 1202px 1583px 1px #FFF, 1508px 638px 1px #FFF, 1788px 1118px 1px #FFF, 401px 897px 1px #FFF, 1391px 1332px 1px #FFF, 444px 1863px 1px #FFF, 1146px 739px 1px #FFF, 1059px 1046px 1px #FFF, 1179px 1812px 1px #FFF, 219px 1152px 1px #FFF, 1209px 1205px 1px #FFF, 706px 1479px 1px #FFF, 801px 1989px 1px #FFF, 290px 584px 1px #FFF, 1740px 1424px 1px #FFF, 1502px 843px 1px #FFF, 735px 1999px 1px #FFF, 1632px 1046px 1px #FFF, 130px 1333px 1px #FFF, 1393px 1135px 1px #FFF; animation-duration: 150s; }
         #stars2 { box-shadow: 1913px 436px 2px #FFF, 1284px 1766px 2px #FFF, 1403px 43px 2px #FFF, 1341px 1350px 2px #FFF, 508px 678px 2px #FFF, 1084px 512px 2px #FFF, 122px 1089px 2px #FFF, 1145px 1541px 2px #FFF, 1968px 125px 2px #FFF, 1202px 797px 2px #FFF, 1409px 1107px 2px #FFF, 1790px 1962px 2px #FFF, 421px 1638px 2px #FFF, 915px 1272px 2px #FFF, 1709px 406px 2px #FFF; animation-duration: 100s; }
         #stars3 { box-shadow: 1062px 1714px 3px #FFF, 839px 490px 3px #FFF, 1913px 1845px 3px #FFF, 1682px 1424px 3px #FFF, 1690px 653px 3px #FFF, 34px 1069px 3px #FFF, 1055px 106px 3px #FFF, 560px 1217px 3px #FFF, 1991px 1017px 3px #FFF, 761px 1285px 3px #FFF; animation-duration: 50s; }
         @keyframes anim-stars { from { transform: translateY(0px); } to { transform: translateY(-2000px); } }
-        /* --- END OF STAR BACKGROUND STYLES --- */
 
         body {
             background-color: transparent;
@@ -94,6 +65,28 @@
             justify-content: center;
             overflow: hidden;
             flex-direction: column;
+            /* MODIFIED: Added transition for smooth layout changes */
+            transition: justify-content 0.5s, padding-top 0.5s;
+        }
+
+        /* MODIFIED: New style for the top date banner, hidden by default */
+        #top-date-banner {
+            position: relative; /* MODIFIED: Added to enable z-index */
+            z-index: 100;       /* MODIFIED: Added to bring it to the front */
+            display: none; /* Initially hidden */
+            background-color: #f6ff00;
+            color: #000000; 
+            text-align: center;
+            padding: 5px 4px;
+            font-size: 5.5rem;
+            font-weight: bold;
+            border: 3px solid #ff0000;
+            margin-bottom: 60px;
+            width: 95%;
+            max-width: 1200px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #ff0000;
+            animation: fadeIn 0.5s;
         }
 
         .container { display: grid; grid-template-columns: 1.2fr 1fr; width: 95%; max-width: 1200px; height: 80vh; align-items: center; gap: 40px; }
@@ -183,45 +176,45 @@
             }
 
         .content-container {
-            height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: center; 
             backdrop-filter: blur(6px);
             background: rgba(10, 10, 20, 0.55);
             border-radius: 15px;
             border: 3px solid rgba(255, 200, 0, 0.781);
-            padding: 2.2rem;
+            padding: 1.2rem;
             box-shadow: 
                 0 0 50px rgba(221, 255, 0, 0.559), 
                 inset 0 0 15px rgba(255, 199, 0, 0.15),
                 inset 0 0 40px rgba(0, 0, 0, 0.5);
-            overflow-y: auto;
+            overflow-y: hidden; /* MODIFIED: Changed from 'auto' to 'hidden' */
         }
 
         .content-panel { display: none; opacity: 0; animation: fadeIn 1s forwards; text-align: left; }
         .content-panel.active { display: block; }
         @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } from { opacity: 0; transform: translateY(20px); } }
         
+        /* Other styles unchanged */
         .rashi-date { font-size: 2.0rem; font-weight: bold; color: var(--secondary-glow); margin: 0 0 15px 0; padding-bottom: 15px; border-bottom: 1px solid rgba(255, 199, 0, 0.3); }
-        .first-rashi-date { font-size: 4.0rem; color: var(--first-date); margin-bottom: 10px; text-align: center; text-shadow: 0 0 10px var(--primary-glow); }
-        .first-rashi-date2 { font-size: 3.0rem; color: var(--first-date); text-align: center; margin-bottom: 10px; text-shadow: 0 0 8px var(--primary-glow); }
+        .first-rashi-date { font-size: 7.5rem; color: var(--text-color); margin-bottom: 10px; text-align: center; text-shadow: 0 0 10px var(--primary-glow); }
         .rashi-title { font-family: 'Orbitron', sans-serif; color: var(--primary-glow); font-size: 2.8rem; margin: 0; text-shadow: 0 0 12px var(--primary-glow); }
         .rashi-title .unicode-symbol { font-size: 3.2rem; margin-right: 15px; vertical-align: middle; filter: drop-shadow(0 0 8px var(--primary-glow)); }
         .rashi-luck { font-size: 1rem; opacity: 0.8; margin-top: 25px; color: var(--lucky-text-color); font-weight: bold; }
         .english-name { font-size: 1.6rem; color: var(--secondary-glow); opacity: 0.9; font-weight: normal; margin-left: 8px; vertical-align: middle; }
         .rashi-description { font-size: 1.1rem; line-height: 1.6; margin-top: 20px; }
         .pratikar { font-weight: bold; color: var(--patrika); margin-top: 25px; }
-        
         .instructions-panel { text-align: center; padding: 20px; }
         .instructions-panel h1 { font-family: 'Orbitron', sans-serif; font-size: 3rem; color: var(--primary-glow); text-shadow: 0 0 15px var(--primary-glow); }
         .instructions-panel p { font-size: 1.2rem; color: #dddddd; }
         .instructions-panel .keys { margin-top: 20px; font-size: 1.4rem; color: var(--secondary-glow); font-family: monospace; }
         .keys span { border: 1px solid var(--secondary-glow); padding: 5px 10px; border-radius: 5px; margin: 0 5px; }
-
     </style>
 </head>
 <body>
+    <!-- MODIFIED: Added top date banner -->
+    <div id="top-date-banner">୧୨ ଜୁଲାଇ ୨୦୨୫, ଶନିବାର</div>
+
     <audio id="background-audio" src="audio1.mp3" loop></audio>
     <audio id="keypress-audio" src="audio2.mp3"></audio>
 
@@ -237,10 +230,9 @@
             <div class="zodiac-wheel" id="zodiac-wheel"></div>
         </div>
         <div class="content-container">
+            <!-- This is the 'A' key panel -->
             <div class="content-panel" id="panel-A">
-                <h1 class="first-rashi-date">୧୨ ଜୁଲାଇ ୨୦୨୫</h1>
-                <h1 class="first-rashi-date2">ଶନିବାର</h1>
-                <h1 class="rashi-title" style="font-size: 2rem;">ଓଡ଼ିଶା ପାଞ୍ଜି ଅନୁସାରେ ରାଶିଫଳ</h1>
+                <h1 class="first-rashi-date" style="font-size: 4.5rem;">ଆଜିର ରାଶିଫଳ</h1>
                 <p class="rashi-date">ତାରିଖ: ୧୨ ଜୁଲାଇ ୨୦୨୫, ଶନିବାର</p>
                 <p class="rashi-description" style="font-size: 1.2rem; margin-top: 10px;">
                     <b>ତିଥି:</b> ଆଷାଢ କୃଷ୍ଣ ପକ୍ଷ ପ୍ରତିପଦା<br>
@@ -249,6 +241,7 @@
                 </p>
                 <p class="pratikar" style="font-size:1.1rem">ଆଜି ଶନିବାର ହୋଇଥିବାରୁ, ଭଗବାନ ଶନିଙ୍କୁ ସ୍ମରଣ କରିବା ଓ ଅସହାୟଙ୍କୁ ସାହାଯ୍ୟ କରିବା ଦ୍ୱାରା ଶୁଭ ଫଳ ପ୍ରାପ୍ତ ହେବ ।</p>
             </div>
+            <!-- Rashi panels will be generated by JS here -->
         </div>
     </div>
 
@@ -276,48 +269,41 @@
             { key: '-', name: 'କୁମ୍ଭ ରାଶି', eng: 'Aquarius', unicode: '🏺', color: 'ନୀଳ', number: 8, details: 'ଆଜି ଆପଣ ନୂଆ ଲୋକଙ୍କ ସହ ମିଶିବେ, ଯାହା ଭବିଷ୍ୟତରେ ଲାଭଦାୟକ ହେବ । ବ୍ୟବସାୟରେ ନୂଆ ଯୋଜନା କାର୍ଯ୍ୟକାରୀ କରିପାରନ୍ତି । ବନ୍ଧୁମାନଙ୍କ ସହଯୋଗ ମିଳିବ । ପ୍ରେମ ଜୀବନରେ ସକାରାତ୍ମକ ପରିବର୍ତ୍ତନ ଆସିବ ।', remedy: 'ପ୍ରତିକାର: ଗରିବ ଲୋକଙ୍କୁ କଳା ଜିନିଷ ଦାନ କରନ୍ତୁ ।' },
             { key: '=', name: 'ମୀନ ରାଶି', eng: 'Pisces', unicode: '🐟', color: 'ହଳଦିଆ', number: 3, details: 'ଆଜି ଆପଣଙ୍କ ମାନ-ସମ୍ମାନରେ ବୃଦ୍ଧି ଘଟିବ । କର୍ମକ୍ଷେତ୍ରରେ ଆପଣଙ୍କ ପରାମର୍ଶକୁ ଗୁରୁତ୍ୱ ଦିଆଯିବ । ଆର୍ଥିକ ଦୃଷ୍ଟିରୁ ଦିନଟି ଲାଭଦାୟକ ରହିବ । ପାରିବାରିକ ବାତାବରଣ ଆନନ୍ଦମୟ ରହିବ । ସ୍ୱାସ୍ଥ୍ୟ ଉତ୍ତମ ରହିବ ।', remedy: 'ପ୍ରତିକାର: ଭଗବାନ ବିଷ୍ଣୁଙ୍କୁ ପୂଜା କରନ୍ତୁ ।' },
         ];
-
-        // --- GLOBAL VARIABLES ---
         const displayDate = '୧୨ ଜୁଲାଇ ୨୦୨୫, ଶନିବାର';
         const wheel = document.getElementById('zodiac-wheel');
         const contentContainer = document.querySelector('.content-container');
-        let wheelSize = 300; // Default mobile size, will be updated
+        // MODIFIED: Get a reference to the new top banner
+        const topDateBanner = document.getElementById('top-date-banner');
+        const mainContainer = document.getElementById('main-container');
+        let wheelSize = 300;
         let angleIncrement = 360 / rashiData.length;
-
         const backgroundAudio = document.getElementById('background-audio');
         const keypressAudio = document.getElementById('keypress-audio');
-
         let continuousSpinInterval = null;
         let currentRotation = 0;
-        let currentRashiIndex = -1; // -1 for initial 'A' state, 0-11 for rashis
-
+        let currentRashiIndex = -1;
+        
         function setupWheel() {
             wheelSize = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--wheel-size'));
             angleIncrement = 360 / rashiData.length;
-
             wheel.innerHTML = '';
             contentContainer.querySelectorAll('.content-panel:not(#panel-A)').forEach(p => p.remove());
-
             const center = document.createElement('div');
             center.className = 'wheel-center';
             const activeDisplay = document.createElement('div');
             activeDisplay.id = 'active-sign-display';
             center.appendChild(activeDisplay);
             wheel.appendChild(center);
-
             for (let i = 0; i < 6; i++) {
                 const divider = document.createElement('div');
                 divider.className = 'divider';
                 divider.style.transform = `rotate(${i * 30}deg)`;
                 wheel.appendChild(divider);
             }
-            
             const iconRadius = wheelSize / 2 * 0.79; 
             const labelRadius = wheelSize / 2 + 40;
-
             rashiData.forEach((rashi, i) => {
                 const angleRad = (i * angleIncrement - 90) * (Math.PI / 180);
-                
                 const iconX = iconRadius * Math.cos(angleRad) + wheelSize / 2;
                 const iconY = iconRadius * Math.sin(angleRad) + wheelSize / 2;
                 const signEl = document.createElement('div');
@@ -327,8 +313,7 @@
                 signEl.style.left = `${iconX}px`;
                 signEl.style.top = `${iconY}px`;
                 wheel.appendChild(signEl);
-
-                if (window.innerWidth > 900) { // Only add labels on larger screens
+                if (window.innerWidth > 900) {
                     const labelX = labelRadius * Math.cos(angleRad) + wheelSize / 2;
                     const labelY = labelRadius * Math.sin(angleRad) + wheelSize / 2;
                     const labelEl = document.createElement('div');
@@ -339,7 +324,6 @@
                     labelEl.style.top = `${labelY}px`;
                     wheel.appendChild(labelEl);
                 }
-                
                 const panelEl = document.createElement('div');
                 panelEl.className = 'content-panel';
                 panelEl.id = `panel-${rashi.key}`;
@@ -354,14 +338,14 @@
             });
         }
         
-        // --- CORE FUNCTION TO SELECT AND DISPLAY RASHI ---
+        // --- MODIFIED: CORE FUNCTION TO SELECT AND DISPLAY RASHI WITH SEPARATE LAYOUTS ---
         function selectRashi(key) {
             const instructionsPanel = document.getElementById('instructions-panel');
-            const mainContainer = document.getElementById('main-container');
             const activeSignDisplay = document.getElementById('active-sign-display');
 
             if (instructionsPanel.classList.contains('active')) {
-                if (key !== 'a') return;
+                // This is the very first interaction
+                if (key !== 'a') return; // Only 'a' (tap) can start
                 backgroundAudio.play().catch(e => console.log("Audio play failed"));
                 instructionsPanel.classList.remove('active');
                 instructionsPanel.style.display = 'none';
@@ -369,10 +353,12 @@
                 mainContainer.style.animation = 'fadeIn 0.5s';
             }
             
+            // Stop animations and prepare for new selection
             clearInterval(continuousSpinInterval);
             wheel.style.transition = 'transform 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55)';
             document.querySelectorAll('.sign, .sign-label, .wheel-center').forEach(el => el.style.transition = 'transform 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55)');
 
+            // Hide currently active elements
             activeSignDisplay.classList.remove('visible');
             document.querySelectorAll('.content-panel').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.sign, .sign-label').forEach(el => el.classList.remove('highlight'));
@@ -380,7 +366,13 @@
             const rashiIndex = rashiData.findIndex(r => r.key === key);
             
             if (rashiIndex > -1) {
-                currentRashiIndex = rashiIndex; // Update the current index
+                // === RASHI STATE (1, 2, 3...) ===
+                // On Rashi selection, hide the top banner and center the layout.
+                topDateBanner.style.display = 'none';
+                document.body.style.justifyContent = 'center';
+                document.body.style.paddingTop = '0';
+                
+                currentRashiIndex = rashiIndex;
                 keypressAudio.currentTime = 0;
                 keypressAudio.play();
                 currentRotation = -(rashiIndex * angleIncrement);
@@ -393,8 +385,15 @@
                     activeSignDisplay.innerHTML = rashiData[rashiIndex].unicode;
                     activeSignDisplay.classList.add('visible');
                 }, 200);
+
             } else if (key === 'a') {
-                currentRashiIndex = -1; // Reset index for 'A' state
+                // === HOME PAGE STATE ('A') ===
+                // For 'A' state, show the banner and align the layout to the top.
+                topDateBanner.style.display = 'block';
+                document.body.style.justifyContent = 'flex-start';
+                document.body.style.paddingTop = '2vh'; // Add some space at the top
+
+                currentRashiIndex = -1; // No specific rashi is selected
                 currentRotation = 0;
                 document.getElementById('panel-A').classList.add('active');
                 setTimeout(() => {
@@ -402,12 +401,14 @@
                     activeSignDisplay.classList.add('visible');
                 }, 200);
             } else {
-                return;
+                return; // Ignore other keys
             }
 
+            // This part is the same for both states: update wheel rotation
             wheel.style.transform = `rotate(${currentRotation}deg)`;
             document.documentElement.style.setProperty('--sign-counter-rotation', `${-currentRotation}deg`);
             
+            // Restart the slow spin after the main animation finishes
             setTimeout(() => {
                 wheel.style.transition = 'none';
                 document.querySelectorAll('.sign, .sign-label, .wheel-center').forEach(el => el.style.transition = 'none');
@@ -419,75 +420,42 @@
             }, 1300);
         }
 
-        // --- KEYBOARD EVENT LISTENER ---
-        document.addEventListener('keydown', (e) => {
-            selectRashi(e.key.toLowerCase());
-        });
-
-        // --- TOUCH EVENT LISTENERS FOR MOBILE ---
+        // --- EVENT LISTENERS (UNCHANGED) ---
         let lastTapTime = 0;
-        let touchStartX = 0;
-        let touchStartY = 0;
-        let touchEndX = 0;
-        let touchEndY = 0;
-
+        let touchStartX = 0, touchStartY = 0, touchEndX = 0, touchEndY = 0;
+        document.addEventListener('keydown', (e) => selectRashi(e.key.toLowerCase()));
         document.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-            touchStartY = e.changedTouches[0].screenY;
-            
-            const currentTime = new Date().getTime();
-            const timeSinceLastTap = currentTime - lastTapTime;
-
+            touchStartX = e.changedTouches[0].screenX; touchStartY = e.changedTouches[0].screenY;
+            const currentTime = new Date().getTime(); const timeSinceLastTap = currentTime - lastTapTime;
             if (timeSinceLastTap < 300 && timeSinceLastTap > 0) {
-                // This is a DOUBLE TAP
-                e.preventDefault(); // Prevent zoom
-                const instructionsPanel = document.getElementById('instructions-panel');
+                e.preventDefault(); const instructionsPanel = document.getElementById('instructions-panel');
                 if (!instructionsPanel.classList.contains('active')) {
-                    const nextIndex = (currentRashiIndex + 1) % rashiData.length;
-                    selectRashi(rashiData[nextIndex].key);
+                    const nextIndex = (currentRashiIndex + 1) % rashiData.length; selectRashi(rashiData[nextIndex].key);
                 }
             }
             lastTapTime = currentTime;
         }, { passive: false });
-
-        document.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            touchEndY = e.changedTouches[0].screenY;
-            handleGesture();
-        });
-
+        document.addEventListener('touchend', e => { touchEndX = e.changedTouches[0].screenX; touchEndY = e.changedTouches[0].screenY; handleGesture(); });
         function handleGesture() {
             const instructionsPanel = document.getElementById('instructions-panel');
-            const diffX = touchEndX - touchStartX;
-            const diffY = touchEndY - touchStartY;
-            
-            if (Math.abs(diffX) < 10 && Math.abs(diffY) < 10) {
-                // This is a SINGLE TAP
-                if (instructionsPanel.classList.contains('active')) {
-                    selectRashi('a');
-                }
-                return;
+            const diffX = touchEndX - touchStartX; const diffY = touchEndY - touchStartY;
+            if (Math.abs(diffX) < 10 && Math.abs(diffY) < 10) { // It's a tap
+                if (instructionsPanel.classList.contains('active')) { 
+                    selectRashi('a'); // Start with the 'A' home panel
+                } 
+                return; 
             }
-            
-            if (Math.abs(diffX) > Math.abs(diffY)) {
-                 // This is a horizontal swipe
+            if (Math.abs(diffX) > Math.abs(diffY)) { // Horizontal swipe
                 if (instructionsPanel.classList.contains('active')) return;
-                 
-                if (diffX > 50) {
-                    // Swipe Right (Previous)
-                    const prevIndex = (currentRashiIndex - 1 + rashiData.length) % rashiData.length;
-                    selectRashi(rashiData[prevIndex].key);
-                } else if (diffX < -50) {
-                    // Swipe Left (Next)
-                    const nextIndex = (currentRashiIndex + 1) % rashiData.length;
-                    selectRashi(rashiData[nextIndex].key);
-                }
+                if (diffX > 50) { // Swipe Right
+                    const prevIndex = (currentRashiIndex - 1 + rashiData.length) % rashiData.length; selectRashi(rashiData[prevIndex].key); } 
+                else if (diffX < -50) { // Swipe Left
+                    const nextIndex = (currentRashiIndex + 1) % rashiData.length; selectRashi(rashiData[nextIndex].key); }
             }
         }
         
-        // --- RUN INITIAL SETUP ---
         setupWheel();
-        window.addEventListener('resize', setupWheel); // Re-run setup on resize for responsiveness
+        window.addEventListener('resize', setupWheel);
 
     </script>
 </body>
