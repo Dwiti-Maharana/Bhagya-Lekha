@@ -3,220 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>୧୩ ଜୁଲାଇ ୨୦୨୫ - ଓଡ଼ିଆ ରାଶିଫଳ</title>
+    <title>୧୭ ଜୁଲାଇ ୨୦୨୫ - ଓଡ଼ିଆ ରାଶିଫଳ</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Oriya:wght@400;700&family=Orbitron:wght@700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Oriya:wght@400;700&family=Orbitron:wght@700&display=swap');
 
+    :root {
+        --primary-glow: #ffc700;
+        --secondary-glow: #fede6b;
+        --sun-primary-glow: #ff00fb;
+        --sun-secondary-glow: #ea00ff;
+        --background-dark: #000;
+        --wheel-color: #192a56;
+        --text-color: #f0f0f0;
+        --first-date: #2bff00;
+        --lucky-text-color: #09ff00;
+        --patrika: #00c8ff;
+        --wheel-size: 450px;
+        --sign-size: 60px;
+        --sign-counter-rotation: 0deg;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
         :root {
-            --primary-glow: #ffc700;
-            --secondary-glow: #fede6b;
-            --sun-primary-glow: #ff00fb;
-            --sun-secondary-glow: #ea00ff;
-            --background-dark: #000;
-            --wheel-color: #192a56;
-            --text-color: #f0f0f0;
-            --first-date: #2bff00;
-            --lucky-text-color: #09ff00;
-            --patrika: #00c8ff;
-            --wheel-size: 450px;
-            --sign-size: 60px;
-            --sign-counter-rotation: 0deg;
+            --wheel-size: 300px;
+            --sign-size: 45px;
         }
-
-        /* Responsive adjustments */
-        @media (max-width: 900px) {
-            :root {
-                --wheel-size: 300px;
-                --sign-size: 45px;
-            }
-            .container {
-                grid-template-columns: 1fr;
-                grid-template-rows: auto 1fr;
-                height: auto;
-                gap: 20px;
-                width: 100%;
-            }
-            .zodiac-container { height: 350px; }
-            .content-container { padding: 1.5rem; height: auto; max-height: 50vh; }
-            .rashi-title { font-size: 2rem; }
-            .sign-label { display: none; }
-            /* MODIFIED: Responsive top banner */
-            #top-date-banner { font-size: 1.8rem; padding: 8px; margin-bottom: 15px; }
-            body { padding-top: 1vh; }
+        .container {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto 1fr;
+            height: auto;
+            gap: 20px;
+            width: 100%;
         }
+        .zodiac-container { height: 350px; }
+        .content-container { padding: 1.5rem 1rem; height: auto; min-height: 45vh; max-height: 55vh; }
+        .rashi-title { font-size: 1.8rem; }
+        .sign-label { display: none; }
+        #top-date-banner { font-size: 3.8rem; padding: 8px; margin-bottom: 15px; }
+        body { padding-top: 1vh; }
 
-        /* Star background unchanged */
-        #star-background { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%); overflow: hidden; }
-        .stars { position: absolute; top: 0; left: 0; width: 1px; height: 1px; background: transparent; animation-name: anim-stars; animation-timing-function: linear; animation-iteration-count: infinite; }
-        #stars1 { box-shadow: 697px 186px 1px #FFF, 1375px 1778px 1px #FFF, 126px 1730px 1px #FFF, 321px 1199px 1px #FFF, 499px 1381px 1px #FFF, 1459px 135px 1px #FFF, 1282px 534px 1px #FFF, 381px 1013px 1px #FFF, 1383px 137px 1px #FFF, 1891px 630px 1px #FFF, 1202px 1583px 1px #FFF, 1508px 638px 1px #FFF, 1788px 1118px 1px #FFF, 401px 897px 1px #FFF, 1391px 1332px 1px #FFF, 444px 1863px 1px #FFF, 1146px 739px 1px #FFF, 1059px 1046px 1px #FFF, 1179px 1812px 1px #FFF, 219px 1152px 1px #FFF, 1209px 1205px 1px #FFF, 706px 1479px 1px #FFF, 801px 1989px 1px #FFF, 290px 584px 1px #FFF, 1740px 1424px 1px #FFF, 1502px 843px 1px #FFF, 735px 1999px 1px #FFF, 1632px 1046px 1px #FFF, 130px 1333px 1px #FFF, 1393px 1135px 1px #FFF; animation-duration: 150s; }
-        #stars2 { box-shadow: 1913px 436px 2px #FFF, 1284px 1766px 2px #FFF, 1403px 43px 2px #FFF, 1341px 1350px 2px #FFF, 508px 678px 2px #FFF, 1084px 512px 2px #FFF, 122px 1089px 2px #FFF, 1145px 1541px 2px #FFF, 1968px 125px 2px #FFF, 1202px 797px 2px #FFF, 1409px 1107px 2px #FFF, 1790px 1962px 2px #FFF, 421px 1638px 2px #FFF, 915px 1272px 2px #FFF, 1709px 406px 2px #FFF; animation-duration: 100s; }
-        #stars3 { box-shadow: 1062px 1714px 3px #FFF, 839px 490px 3px #FFF, 1913px 1845px 3px #FFF, 1682px 1424px 3px #FFF, 1690px 653px 3px #FFF, 34px 1069px 3px #FFF, 1055px 106px 3px #FFF, 560px 1217px 3px #FFF, 1991px 1017px 3px #FFF, 761px 1285px 3px #FFF; animation-duration: 50s; }
-        @keyframes anim-stars { from { transform: translateY(0px); } to { transform: translateY(-2000px); } }
-
-        body {
-            background-color: transparent;
-            font-family: 'Noto Sans Oriya', 'Segoe UI Emoji', sans-serif;
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            flex-direction: column;
-            /* MODIFIED: Added transition for smooth layout changes */
-            transition: justify-content 0.5s, padding-top 0.5s;
-        }
-
-        /* MODIFIED: New style for the top date banner, hidden by default */
-        #top-date-banner {
-            position: relative; /* MODIFIED: Added to enable z-index */
-            z-index: 100;       /* MODIFIED: Added to bring it to the front */
-            display: none; /* Initially hidden */
-            background-color: #f6ff00;
-            color: #000000; 
-            text-align: center;
-            padding: 5px 4px;
-            font-size: 5.5rem;
-            font-weight: bold;
-            border: 3px solid #ff0000;
-            margin-bottom: 60px;
-            width: 95%;
-            max-width: 1200px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px #ff0000;
-            animation: fadeIn 0.5s;
-        }
-
-        .container { display: grid; grid-template-columns: 1.2fr 1fr; width: 95%; max-width: 1200px; height: 80vh; align-items: center; gap: 40px; }
-        .zodiac-container { position: relative; display: flex; align-items: center; justify-content: center; perspective: 1000px; }
-        .sun-background { position: absolute; width: calc(var(--wheel-size) * 1.2); height: calc(var(--wheel-size) * 1.2); border-radius: 50%; background: radial-gradient(circle, rgba(221, 0, 255, 0.4) 0%, rgba(255, 199, 0, 0.2) 40%, rgba(25, 42, 86, 0) 70%); z-index: 0; animation: rotate-sun 40s linear infinite; }
-        .sun-background::before { content: ''; position: absolute; top: -10%; left: -10%; width: 120%; height: 120%; border-radius: 50%; box-shadow: 0 0 60px 20px var(--sun-primary-glow), 0 0 100px 40px var(--sun-secondary-glow), inset 0 0 40px 10px var(--sun-secondary-glow); animation: sun-rashni 3s ease-in-out infinite; filter: blur(5px); }
-        @keyframes rotate-sun { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        @keyframes sun-rashni { 0%, 100% { transform: scale(1); opacity: 0.6; } 50% { transform: scale(1.05); opacity: 0.8; } }
-
-        .zodiac-wheel {
-            width: var(--wheel-size);
-            height: var(--wheel-size);
-            border-radius: 50%;
-            position: relative;
-            background: var(--wheel-color);
-            border: 3px solid #fff;
-            animation: glow-wheel 2s ease-in-out infinite;
-            z-index: 2;
-            transition: transform 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-        }
-        @keyframes glow-wheel {
-            0%, 100% { box-shadow: 0 0 15px rgba(255, 42, 0, 0.3), 0 0 25px 5px var(--sun-secondary-glow); }
-            50% { box-shadow: 0 0 25px rgba(255, 255, 255, 0.5), 0 0 40px 10px var(--sun-primary-glow); }
-        }
-
-        .divider { position: absolute; width: 1px; height: 100%; background: rgba(255, 255, 255, 0.5); left: 50%; top: 0; transform-origin: center; }
+        #channel-logo { font-size: 1.2rem; padding: 8px 12px; }
         
-        .wheel-center {
-            position: absolute;
-            width: 55%;
-            height: 55%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(var(--sign-counter-rotation));
-            transition: transform 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-            background: radial-gradient(circle, #00ff00, #1100ff); 
-            border: 3px solid rgb(255, 255, 255);           
-            border-radius: 50%;            
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #active-sign-display { font-size: 7rem; opacity: 0; transform: scale(0.5); transition: opacity 0.4s ease, transform 0.4s ease; text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4); line-height: 1; }
-        #active-sign-display.visible { opacity: 1; transform: scale(1); }
-        @media (max-width: 900px) { #active-sign-display { font-size: 5rem; } }
-
-
-        .sign, .sign-label {
-            position: absolute;
-            z-index: 5;
-            pointer-events: none;
-            transform: rotate(var(--sign-counter-rotation));
-            transition: transform 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55), color 0.5s ease, text-shadow 0.5s ease, background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
-        }
-
-        .sign {
-            width: var(--sign-size);
-            height: var(--sign-size);
-            margin-left: calc(var(--sign-size) / -2);
-            margin-top: calc(var(--sign-size) / -2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: calc(var(--sign-size) * 0.7);
-            color: #ffffff;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-            border: 1px solid rgb(255, 255, 255);
-            backdrop-filter: blur(2px);
-            box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5), 0 0 12px rgba(0, 200, 255, 0.4);
-        }
-
-        .sign-label { color: #00fbff; width: 60px; text-align: center; margin-left: -30px; margin-top: -12px; font-size: 1.1rem; font-weight: bold; }
+        #active-sign-display { font-size: 6.5rem; }
         
-        .sign.highlight {
-            text-shadow: 0 0 12px #06c222e2, 0 0 20px #55ff00;
-            transform: rotate(var(--sign-counter-rotation)) scale(1.3);
-            background: rgba(255, 199, 0, 0.2);
-            border-color: var(--first-date);
-            box-shadow: 0 0 20px var(--lucky-text-color);
-        }
-        .sign-label.highlight { 
-            color: #2bff00;        
-            text-shadow: 0 0 12px #2bff00, 0 0 20px #00ff00;
-            }
+        .symbol-display { font-size: 18vw !important; }
 
-        .content-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center; 
-            backdrop-filter: blur(6px);
-            background: rgba(10, 10, 20, 0.55);
-            border-radius: 15px;
-            border: 3px solid rgba(255, 200, 0, 0.781);
-            padding: 1.2rem;
-            box-shadow: 
-                0 0 50px rgba(221, 255, 0, 0.559), 
-                inset 0 0 15px rgba(255, 199, 0, 0.15),
-                inset 0 0 40px rgba(0, 0, 0, 0.5);
-            overflow-y: hidden; /* MODIFIED: Changed from 'auto' to 'hidden' */
-        }
+        .extra-symbol { font-size: 2rem; }
+        .extra-text { font-size: 0.9rem; }
+    }
 
-        .content-panel { display: none; opacity: 0; animation: fadeIn 1s forwards; text-align: left; }
-        .content-panel.active { display: block; }
-        @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } from { opacity: 0; transform: translateY(20px); } }
-        
-        /* Other styles unchanged */
-        .rashi-date { font-size: 2.0rem; font-weight: bold; color: var(--secondary-glow); margin: 0 0 15px 0; padding-bottom: 15px; border-bottom: 1px solid rgba(255, 199, 0, 0.3); }
-        .first-rashi-date { font-size: 7.5rem; color: var(--text-color); margin-bottom: 10px; text-align: center; text-shadow: 0 0 10px var(--primary-glow); }
-        .rashi-title { font-family: 'Orbitron', sans-serif; color: var(--primary-glow); font-size: 2.8rem; margin: 0; text-shadow: 0 0 12px var(--primary-glow); }
-        .rashi-title .unicode-symbol { font-size: 3.2rem; margin-right: 15px; vertical-align: middle; filter: drop-shadow(0 0 8px var(--primary-glow)); }
-        .rashi-luck { font-size: 1rem; opacity: 0.8; margin-top: 25px; color: var(--lucky-text-color); font-weight: bold; }
-        .english-name { font-size: 1.6rem; color: var(--secondary-glow); opacity: 0.9; font-weight: normal; margin-left: 8px; vertical-align: middle; }
-        .rashi-description { font-size: 1.1rem; line-height: 1.6; margin-top: 20px; }
-        .pratikar { font-weight: bold; color: var(--patrika); margin-top: 25px; }
-        .instructions-panel { text-align: center; padding: 20px; }
-        .instructions-panel h1 { font-family: 'Orbitron', sans-serif; font-size: 3rem; color: var(--primary-glow); text-shadow: 0 0 15px var(--primary-glow); }
-        .instructions-panel p { font-size: 1.2rem; color: #dddddd; }
-        .instructions-panel .keys { margin-top: 20px; font-size: 1.4rem; color: var(--secondary-glow); font-family: monospace; }
-        .keys span { border: 1px solid var(--secondary-glow); padding: 5px 10px; border-radius: 5px; margin: 0 5px; }
+    /* Star background unchanged */
+    #star-background { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%); overflow: hidden; }
+    .stars { position: absolute; top: 0; left: 0; width: 1px; height: 1px; background: transparent; animation-name: anim-stars; animation-timing-function: linear; animation-iteration-count: infinite; }
+    #stars1 { box-shadow: 697px 186px 1px #FFF, 1375px 1778px 1px #FFF, 126px 1730px 1px #FFF, 321px 1199px 1px #FFF, 499px 1381px 1px #FFF, 1459px 135px 1px #FFF, 1282px 534px 1px #FFF, 381px 1013px 1px #FFF, 1383px 137px 1px #FFF, 1891px 630px 1px #FFF, 1202px 1583px 1px #FFF, 1508px 638px 1px #FFF, 1788px 1118px 1px #FFF, 401px 897px 1px #FFF, 1391px 1332px 1px #FFF, 444px 1863px 1px #FFF, 1146px 739px 1px #FFF, 1059px 1046px 1px #FFF, 1179px 1812px 1px #FFF, 219px 1152px 1px #FFF, 1209px 1205px 1px #FFF, 706px 1479px 1px #FFF, 801px 1989px 1px #FFF, 290px 584px 1px #FFF, 1740px 1424px 1px #FFF, 1502px 843px 1px #FFF, 735px 1999px 1px #FFF, 1632px 1046px 1px #FFF, 130px 1333px 1px #FFF, 1393px 1135px 1px #FFF; animation-duration: 150s; }
+    #stars2 { box-shadow: 1913px 436px 2px #FFF, 1284px 1766px 2px #FFF, 1403px 43px 2px #FFF, 1341px 1350px 2px #FFF, 508px 678px 2px #FFF, 1084px 512px 2px #FFF, 122px 1089px 2px #FFF, 1145px 1541px 2px #FFF, 1968px 125px 2px #FFF, 1202px 797px 2px #FFF, 1409px 1107px 2px #FFF, 1790px 1962px 2px #FFF, 421px 1638px 2px #FFF, 915px 1272px 2px #FFF, 1709px 406px 2px #FFF; animation-duration: 100s; }
+    #stars3 { box-shadow: 1062px 1714px 3px #FFF, 839px 490px 3px #FFF, 1913px 1845px 3px #FFF, 1682px 1424px 3px #FFF, 1690px 653px 3px #FFF, 34px 1069px 3px #FFF, 1055px 106px 3px #FFF, 560px 1217px 3px #FFF, 1991px 1017px 3px #FFF, 761px 1285px 3px #FFF; animation-duration: 50s; }
+    @keyframes anim-stars { from { transform: translateY(0px); } to { transform: translateY(-2000px); } }
+
+    body {
+        background-color: transparent;
+        font-family: 'Noto Sans Oriya', 'Segoe UI Emoji', sans-serif;
+        color: var(--text-color);
+        margin: 0; padding: 0; height: 100vh; display: flex;
+        align-items: center; justify-content: center; overflow: hidden;
+        flex-direction: column; transition: justify-content 0.5s, padding-top 0.5s;
+    }
+
+    #channel-logo, #top-date-banner, .container, #instructions-panel {
+        -webkit-user-select: none; user-select: none; 
+    }
+
+    #top-date-banner {
+        position: relative;
+        z-index: 100;
+        display: none;
+        background-color: #f6ff00;
+        color: #000000;
+        text-align: center;
+        padding: 18px 10px;           /* Increased padding */
+        font-size: 8rem;              /* Increased font size */
+        font-weight: bold;
+        border: 4px solid #ff0000;    /* Thicker border */
+        margin-bottom: 80px;          /* More space below */
+        width: 98%;
+        max-width: 1500px;            /* Increased max width */
+        border-radius: 12px;          /* More rounded corners */
+        box-shadow: 0 0 24px #ff0000; /* Stronger shadow */
+        animation: fadeIn 0.5s;
+    }
+
+    /* MODIFIED: Increased container size */
+    .container { 
+        display: grid; 
+        grid-template-columns: 1.2fr 1fr; 
+        width: 95%; 
+        max-width: 1400px; /* Increased from 1200px */
+        height: 100vh;      /* Increased from 80vh */
+        align-items: center; 
+        gap: 40px; 
+    }
+    
+    .zodiac-container { position: relative; display: flex; align-items: center; justify-content: center; perspective: 1000px; }
+    .sun-background { position: absolute; width: calc(var(--wheel-size) * 1.2); height: calc(var(--wheel-size) * 1.2); border-radius: 50%; background: radial-gradient(circle, rgba(221, 0, 255, 0.4) 0%, rgba(255, 199, 0, 0.2) 40%, rgba(25, 42, 86, 0) 70%); z-index: 0; animation: rotate-sun 40s linear infinite; }
+    .sun-background::before { content: ''; position: absolute; top: -10%; left: -10%; width: 120%; height: 120%; border-radius: 50%; box-shadow: 0 0 60px 20px var(--sun-primary-glow), 0 0 100px 40px var(--sun-secondary-glow), inset 0 0 40px 10px var(--sun-secondary-glow); animation: sun-rashni 3s ease-in-out infinite; filter: blur(5px); }
+    @keyframes rotate-sun { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes sun-rashni { 0%, 100% { transform: scale(1); opacity: 0.6; } 50% { transform: scale(1.05); opacity: 0.8; } }
+
+    .zodiac-wheel {
+        width: var(--wheel-size); height: var(--wheel-size); border-radius: 50%;
+        position: relative; background: var(--wheel-color); border: 3px solid #fff;
+        animation: glow-wheel 2s ease-in-out infinite; z-index: 2;
+        transition: transform 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+    @keyframes glow-wheel {
+        0%, 100% { box-shadow: 0 0 15px rgba(255, 42, 0, 0.3), 0 0 25px 5px var(--sun-secondary-glow); }
+        50% { box-shadow: 0 0 25px rgba(255, 255, 255, 0.5), 0 0 40px 10px var(--sun-primary-glow); }
+    }
+
+    .divider { position: absolute; width: 1px; height: 100%; background: rgba(255, 255, 255, 0.5); left: 50%; top: 0; transform-origin: center; }
+    
+    .wheel-center {
+        position: absolute; width: 55%; height: 55%; top: 50%; left: 50%;
+        transform: translate(-50%, -50%) rotate(var(--sign-counter-rotation));
+        transition: transform 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        background: radial-gradient(circle, #00ff00, #1100ff); 
+        border: 3px solid rgb(255, 255, 255); border-radius: 50%; z-index: 10;
+        display: flex; align-items: center; justify-content: center;
+    }
+    
+    #active-sign-display {
+        font-size: 8.5rem; opacity: 0; transform: scale(0.5);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4); line-height: 1;
+    }
+    #active-sign-display.visible { opacity: 1; transform: scale(1); }
+
+    .sign, .sign-label {
+        position: absolute; z-index: 5; pointer-events: none;
+        transform: rotate(var(--sign-counter-rotation));
+        transition: transform 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55), color 0.5s ease, text-shadow 0.5s ease, background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .sign {
+        width: var(--sign-size); height: var(--sign-size);
+        margin-left: calc(var(--sign-size) / -2); margin-top: calc(var(--sign-size) / -2);
+        display: flex; align-items: center; justify-content: center;
+        font-size: calc(var(--sign-size) * 0.7); color: #ffffff;
+        background: rgba(255, 255, 255, 0.05); border-radius: 50%;
+        border: 1px solid rgb(255, 255, 255); backdrop-filter: blur(2px);
+        box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5), 0 0 12px rgba(0, 200, 255, 0.4);
+    }
+
+    .sign-label { color: #00fbff; width: 60px; text-align: center; margin-left: -30px; margin-top: -12px; font-size: 1.1rem; font-weight: bold; text-shadow: 0 0 5px #000; }
+    
+    .sign.highlight {
+        text-shadow: 0 0 12px #06c222e2, 0 0 20px #55ff00;
+        transform: rotate(var(--sign-counter-rotation)) scale(1.3);
+        background: rgba(255, 199, 0, 0.2); border-color: var(--first-date);
+        box-shadow: 0 0 20px var(--lucky-text-color);
+    }
+    .sign-label.highlight { color: #2bff00; text-shadow: 0 0 12px #2bff00, 0 0 20px #00ff00; }
+
+    .content-container {
+        display: flex; flex-direction: column; justify-content: flex-start; 
+        backdrop-filter: blur(6px); background: rgba(10, 10, 20, 0.55);
+        border-radius: 15px; border: 3px solid rgba(255, 200, 0, 0.781);
+        padding: 2.5rem 1.2rem;
+        box-shadow: 0 0 50px rgba(221, 255, 0, 0.559), 
+            inset 0 0 15px rgba(255, 199, 0, 0.15), inset 0 0 40px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+    }
+
+    .content-panel { display: none; opacity: 0; animation: fadeIn 1s forwards; text-align: left; height: 100%; }
+    .content-panel.active { display: flex; flex-direction: column; }
+    @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } from { opacity: 0; transform: translateY(20px); } }
+    
+    .rashi-date { font-size: 1.5rem; font-weight: bold; color: var(--secondary-glow); margin: 0 0 10px 0; padding-bottom: 10px; border-bottom: 1px solid rgba(255, 199, 0, 0.3); flex-shrink: 0; }
+    .rashi-title { font-family: 'Orbitron', sans-serif; color: var(--primary-glow); font-size: 2.2rem; margin: 0; text-shadow: 0 0 12px var(--primary-glow); flex-shrink: 0;}
+    .rashi-title .unicode-symbol { font-size: 2.5rem; margin-right: 15px; vertical-align: middle; filter: drop-shadow(0 0 8px var(--primary-glow)); }
+    .english-name { font-size: 1.4rem; color: var(--secondary-glow); opacity: 0.9; font-weight: normal; margin-left: 8px; vertical-align: middle; }
+    
+    .rashi-description {
+        flex-grow: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        min-height: 220px;         /* Increased minimum height */
+        padding: 32px 0;           /* More vertical space */
+        font-size: 2.2rem;         /* Larger font size */
+        background: rgba(255, 255, 0, 0.04); /* Subtle highlight */
+        border-radius: 18px;
+        box-shadow: 0 0 24px 2px rgba(255, 199, 0, 0.08);
+        transition: background 0.3s, box-shadow 0.3s;
+    }
+
+    .symbol-display {
+        font-size: 13rem;           /* Increased from 8rem */
+        line-height: 1;
+        text-shadow: 0 0 40px #fff, 0 0 25px #ffc700;
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    .symbol-display.anim-enter { animation: symbol-enter 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+    .symbol-display.anim-exit { animation: symbol-exit 0.4s ease-in forwards; }
+    @keyframes symbol-enter { to { opacity: 1; transform: scale(1) rotate(0); } }
+    @keyframes symbol-exit { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(0.5); } }
+
+    .extra-info-container {
+        flex-shrink: 0;
+        margin-top: 20px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(255, 199, 0, 0.3);
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+    .extra-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 45%;
+        opacity: 0;
+        transition: opacity 0.6s ease-in-out;
+    }
+    .extra-symbol {
+        font-size: 2.5rem;
+        line-height: 1.1;
+        margin-bottom: 8px;
+        filter: drop-shadow(0 0 5px currentColor);
+    }
+    .extra-text {
+        font-size: 0.95rem;
+        font-weight: bold;
+    }
+    .remedy-text {
+        color: var(--patrika);
+    }
+    .lucky-text {
+        color: var(--lucky-text-color);
+    }
+
+    .instructions-panel { text-align: center; padding: 20px; }
+    .instructions-panel h1 { font-family: 'Orbitron', sans-serif; font-size: 3rem; color: var(--primary-glow); text-shadow: 0 0 15px var(--primary-glow); }
+    .instructions-panel p { font-size: 1.2rem; color: #dddddd; }
+
     </style>
 </head>
 <body>
-    <!-- MODIFIED: Added top date banner -->
-    <div id="top-date-banner">୧୩ ଜୁଲାଇ ୨୦୨୫, ରବିବାର</div>
+    <div id="top-date-banner">୧୭ ଜୁଲାଇ ୨୦୨୫, ଗୁରୁବାର</div>
 
     <audio id="background-audio" src="audio1.mp3" loop></audio>
     <audio id="keypress-audio" src="audio2.mp3"></audio>
+    <!-- ADDED: New audio element for the emoji sound. Replace 'audio3.mp3' with your sound file. -->
+    <audio id="emoji-audio" src="audio3.mp3"></audio>
 
     <div id="star-background">
         <div id="stars1" class="stars"></div>
@@ -230,58 +273,232 @@
             <div class="zodiac-wheel" id="zodiac-wheel"></div>
         </div>
         <div class="content-container">
-            <!-- This is the 'A' key panel -->
             <div class="content-panel" id="panel-A">
-                <h1 class="first-rashi-date" style="font-size: 4.5rem;">ଆଜିର ରାଶିଫଳ</h1>
-                <p class="rashi-date">ତାରିଖ: ୧୩ ଜୁଲାଇ ୨୦୨୫, ରବିବାର</p>
-                <p class="rashi-description" style="font-size: 1.2rem; margin-top: 10px;">
-                    <b>ତିଥି:</b> ଆଷାଢ ଶୁକ୍ଳ ପକ୍ଷ ଦ୍ଵିତୀୟା<br>
-                    <b>ନକ୍ଷତ୍ର:</b> ପୁଷ୍ୟା<br>
-                    <b>ଚନ୍ଦ୍ର ରାଶି:</b> କର୍କଟ ରାଶି
+                 <h1 style="font-size: 4.5rem; text-align:center;">ଆଜିର ରାଶିଫଳ</h1>
+                <p style="font-size: 1.2rem; margin-top: 10px; text-align:center; color: #fede6b;">
+                    <b>ତିଥି:</b> କୃଷ୍ଣପକ୍ଷ ସପ୍ତମୀ | <b>ନକ୍ଷତ୍ର:</b> ରେବତୀ | <b>ଚନ୍ଦ୍ର ରାଶି:</b> ମୀନ
                 </p>
-                <p class="pratikar" style="font-size:1.1rem">ଆଜି ରବିବାର ହୋଇଥିବାରୁ, ଭଗବାନ ସୂର୍ଯ୍ୟଙ୍କୁ ପୂଜା କରିବା ଏବଂ ଗାୟତ୍ରୀ ମନ୍ତ୍ର ଜପ କରିବା ଦ୍ୱାରା ଦିନଟି ଶୁଭମୟ ହେବ ।</p>
+                <p class="pratikar" style="font-size:1.1rem; text-align:center;">ଆଜି ଗୁରୁବାର ହୋଇଥିବାରୁ, ଭଗବାନ ବିଷ୍ଣୁଙ୍କୁ ପୂଜା କରିବା ଏବଂ କଦଳୀ ଗଛ ମୂଳରେ ଦୀପ ଦେବା ଦ୍ୱାରା ଦିନଟି ଶୁଭମୟ ହେବ ।</p>
             </div>
-            <!-- Rashi panels will be generated by JS here -->
         </div>
     </div>
 
     <div class="content-panel active" id="instructions-panel">
         <div class="instructions-panel">
-            <h1>ରାଶିଫଳକୁ ସ୍ୱାଗତ</h1>
-            <p>ପ୍ରାରମ୍ଭ ପାଇଁ ସ୍କ୍ରିନରେ ଟ୍ୟାପ୍ କରନ୍ତୁ</p>
-            <p style="margin-top: 20px;">ପରବର୍ତ୍ତୀ ରାଶି ପାଇଁ ଡବଲ୍ ଟ୍ୟାପ୍ କରନ୍ତୁ କିମ୍ବା ବାମକୁ ସ୍ୱାଇପ୍ କରନ୍ତୁ</p>
-            <p style="margin-top: 40px; font-size: 1rem;">କିବୋର୍ଡ୍ ବ୍ୟବହାରକାରୀ:<br> ମେଷ(1), ବୃଷ(2), ମିଥୁନ(3), କର୍କଟ(4), ସିଂହ(5), କନ୍ୟା(6), ତୁଳା(7), ବିଛା(8), ଧନୁ(9), ମକର(0), କୁମ୍ଭ(-), ମୀନ(=)</p>
+            <h1>'ଭାଗ୍ୟଲିପି'<br>ରାଶିଫଳକୁ ସ୍ୱାଗତ</h1>
+            <h1 style="color: #dddddd; font-weight:bolder;">ତାରିଖ: ୧୭ ଜୁଲାଇ ୨୦୨୫, ଗୁରୁବାର</h1>
         </div>
     </div>
 
     <script>
         const rashiData = [
-            { key: '1', name: 'ମେଷ ରାଶି', eng: 'Aries', unicode: '🐏', color: 'ନାଲି', number: 9, details: 'ଆଜି ଦିନଟି ଆପଣଙ୍କ ପାଇଁ ପାରିବାରିକ ସୁଖଶାନ୍ତିରେ ପରିପୂର୍ଣ୍ଣ ରହିବ। ଘରର ବାତାବରଣ ଅତ୍ୟନ୍ତ ଆନନ୍ଦମୟ ରହିବ ଏବଂ ସଦସ୍ୟଙ୍କ ମଧ୍ୟରେ ସ୍ନେହ ଓ ସଦ୍‌ଭାବ ବୃଦ୍ଧି ପାଇବ। ଯଦି ଆପଣ କୌଣସି ନୂତନ ଗୃହ, ଜମି କିମ୍ବା ଯାନବାହନ କ୍ରୟ କରିବାକୁ ଯୋଜନା କରୁଛନ୍ତି, ତେବେ ଆଜି ଏ ଦିଗରେ ଆଗକୁ ବଢ଼ିପାରନ୍ତି। ମାତାଙ୍କ ସ୍ୱାସ୍ଥ୍ୟ ଉତ୍ତମ ରହିବ ଏବଂ ତାଙ୍କର ଆଶୀର୍ବାଦ ଆପଣଙ୍କୁ ମିଳିବ, ଯାହା ଆପଣଙ୍କ ମନୋବଳକୁ ଦୃଢ଼ କରିବ।', remedy: 'ପ୍ରତିକାର: ସୂର୍ଯ୍ୟ ଦେବଙ୍କୁ ଜଳ ଅର୍ପଣ କରନ୍ତୁ ।' },
-            { key: '2', name: 'ବୃଷ ରାଶି', eng: 'Taurus', unicode: '🐂', color: 'ଧଳା', number: 6, details: 'ଆଜି ଆପଣଙ୍କ ଭିତରେ ଅଦମ୍ୟ ସାହସ ଓ ପରାକ୍ରମ ସଞ୍ଚାର ହେବ, ଯାହାଫଳରେ ଆପଣ କଠିନରୁ କଠିନ କାର୍ଯ୍ୟକୁ ମଧ୍ୟ ସହଜରେ ସମ୍ପନ୍ନ କରିପାରିବେ। ସାନ ଭାଇଭଉଣୀଙ୍କ ସହିତ ସମ୍ପର୍କ ମଧୁର ହେବ ଏବଂ ସେମାନଙ୍କଠାରୁ ଆବଶ୍ୟକୀୟ ସହଯୋଗ ମିଳିବ। କୌଣସି କାର୍ଯ୍ୟ ସମ୍ବନ୍ଧୀୟ ଛୋଟ ଯାତ୍ରାର ଯୋଗ ରହିଛି, ଯାହା ଆପଣଙ୍କ ପାଇଁ ଲାଭଦାୟକ ସାବ୍ୟସ୍ତ ହେବ। ଲେଖାଲେଖି, ମିଡିଆ କିମ୍ବା ମାର୍କେଟିଂ କ୍ଷେତ୍ରରେ ଜଡିତ ବ୍ୟକ୍ତିମାନେ ବିଶେଷ ସଫଳତା ହାସଲ କରିବେ।', remedy: 'ପ୍ରତିକାର: ମା\' ଲକ୍ଷ୍ମୀଙ୍କୁ ପୂଜା କରନ୍ତୁ ।' },
-            { key: '3', name: 'ମିଥୁନ ରାଶି', eng: 'Gemini', unicode: '👫🏽', color: 'ସବୁଜ', number: 5, details: 'ଆପଣଙ୍କ ପାଇଁ ଆଜି ଆର୍ଥିକ ଦୃଷ୍ଟିକୋଣରୁ ଏକ ଉତ୍ତମ ଦିନ । ବିଭିନ୍ନ ସୂତ୍ରରୁ ଧନ ପ୍ରାପ୍ତିର ସମ୍ଭାବନା ରହିଛି, ଯାହା ଆପଣଙ୍କ ଆର୍ଥିକ ସ୍ଥିତିକୁ ମଜବୁତ କରିବ । ନିଜର ବାକ୍‌ଚାତୁରୀ ଏବଂ ମଧୁର ବ୍ୟବହାର ଦ୍ୱାରା ଅନ୍ୟମାନଙ୍କ ମନ ଜିଣିବାରେ ସକ୍ଷମ ହେବେ । ପାରିବାରିକ ସମାବେଶରେ ଯୋଗ ଦେଇପାରନ୍ତି ଏବଂ ସୁସ୍ୱାଦୁ ଭୋଜନର ଆନନ୍ଦ ଉଠାଇବେ । କୌଣସି ନୂତନ ନିବେଶ ପାଇଁ ଦିନଟି ଅନୁକୂଳ ରହିବ ।', remedy: 'ପ୍ରତିକାର: ଗାଈକୁ ସବୁଜ ଘାସ ଖାଇବାକୁ ଦିଅନ୍ତୁ ।' },
-            { key: '4', name: 'କର୍କଟ ରାଶି', eng: 'Cancer', unicode: '🦀', color: 'କ୍ରିମ୍', number: 2, details: 'ଆଜି ଚନ୍ଦ୍ର ଆପଣଙ୍କ ରାଶିରେ ଅବସ୍ଥାନ କରୁଥିବାରୁ ଦିନଟି ସମ୍ପୂର୍ଣ୍ଣ ଭାବେ ଆପଣଙ୍କ ପକ୍ଷରେ ରହିବ । ଆପଣଙ୍କ ବ୍ୟକ୍ତିତ୍ୱରେ ଏକ ନୂତନ ଆକର୍ଷଣ ଦେଖାଦେବ । ଶାରୀରିକ ସୁସ୍ଥତା ସହିତ ମାନସିକ ଶାନ୍ତି ଅନୁଭବ କରିବେ । ସମାଜରେ ଆପଣଙ୍କର ପ୍ରତିଷ୍ଠା ଓ ଲୋକପ୍ରିୟତା ବୃଦ୍ଧି ପାଇବ । ଯେକୌଣସି ନୂତନ କାର୍ଯ୍ୟ ଆରମ୍ଭ କରିବା ପାଇଁ ଏହା ଏକ ପ୍ରକୃଷ୍ଟ ସମୟ । ଆପଣଙ୍କ ନିଷ୍ପତ୍ତିଗୁଡ଼ିକ ସଠିକ୍ ସାବ୍ୟସ୍ତ ହେବ ।', remedy: 'ପ୍ରତିକାର: ଭଗବାନ ଶିବଙ୍କୁ ଜଳାଭିଷେକ କରନ୍ତୁ ।' },
-            { key: '5', name: 'ସିଂହ ରାଶି', eng: 'Leo', unicode: '🦁', color: 'ସୁନେଲି', number: 1, details: 'ଆଜି ଆପଣଙ୍କର ଅପ୍ରତ୍ୟାଶିତ ଭାବେ ଖର୍ଚ୍ଚ ବୃଦ୍ଧି ପାଇପାରେ, ତେଣୁ ଆର୍ଥିକ ମାମଲାରେ ସତର୍କତା ଅବଲମ୍ବନ କରନ୍ତୁ । ବୃଥା ଯାତ୍ରା ଏବଂ ଅନାବଶ୍ୟକ କାର୍ଯ୍ୟରେ ସମୟ ନଷ୍ଟ ହୋଇପାରେ । ମାନସିକ ଶାନ୍ତି ପାଇଁ ଆଧ୍ୟାତ୍ମିକ କାର୍ଯ୍ୟରେ ମନୋନିବେଶ କରନ୍ତୁ । ବିଦେଶ ସହ ଜଡିତ କାର୍ଯ୍ୟରେ ସଫଳତା ମିଳିପାରେ । କୌଣସି ଆଇନଗତ ମାମଲାରେ ସାବଧାନ ରହିବା ଆବଶ୍ୟକ । ନକାରାତ୍ମକ ଚିନ୍ତାରୁ ଦୂରେଇ ରୁହନ୍ତୁ ।', remedy: 'ପ୍ରତିକାର: ଗାୟତ୍ରୀ ମନ୍ତ୍ର ଜପ କରନ୍ତୁ ।' },
-            { key: '6', name: 'କନ୍ୟା ରାଶି', eng: 'Virgo', unicode: '💃', color: 'ସବୁଜ', number: 5, details: 'ଆଜି ଆପଣଙ୍କ ପାଇଁ ଆୟର ବିଭିନ୍ନ ନୂତନ ପଥ ଉନ୍ମୁକ୍ତ ହେବ । ବ୍ୟବସାୟରେ କରାଯାଇଥିବା ପୁରୁଣା ନିବେଶରୁ ଭଲ ଲାଭ ମିଳିବ । ବଡ଼ ଭାଇ କିମ୍ବା ବନ୍ଧୁମାନଙ୍କ ସହଯୋଗରେ କୌଣସି ଅଟକି ରହିଥିବା ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ କାର୍ଯ୍ୟ ସମ୍ପନ୍ନ ହେବ । ଆପଣଙ୍କର ଦୀର୍ଘ ଦିନର କୌଣସି ଅଭିଳାଷ ପୂରଣ ହେବାର ସମ୍ଭାବନା ଅଛି । ସାମାଜିକ କାର୍ଯ୍ୟକଳାପରେ ସକ୍ରିୟ ରହିବେ ଏବଂ ପ୍ରଶଂସା ପାଇବେ ।', remedy: 'ପ୍ରତିକାର: ଭଗବାନ ଗଣେଶଙ୍କୁ ଦୂବ ଅର୍ପଣ କରନ୍ତୁ ।' },
-            { key: '7', name: 'ତୁଳା ରାଶି', eng: 'Libra', unicode: '⚖️', color: 'ଧଳା', number: 6, details: 'କର୍ମକ୍ଷେତ୍ରରେ ଆଜି ଆପଣଙ୍କ ପାଇଁ ଏକ ସଫଳତାର ଦିନ । କାର୍ଯ୍ୟଦକ୍ଷତା ପାଇଁ ଉଚ୍ଚ ପଦାଧିକାରୀଙ୍କଠାରୁ ପ୍ରଶଂସା ପାଇବେ ଏବଂ ପଦୋନ୍ନତିର ସମ୍ଭାବନା ସୃଷ୍ଟି ହୋଇପାରେ । ସରକାରୀ କାର୍ଯ୍ୟରେ ଆସୁଥିବା ବାଧା ଦୂର ହେବ । ପିତାଙ୍କ ସ୍ୱାସ୍ଥ୍ୟ ଭଲ ରହିବ ଏବଂ ତାଙ୍କ ପରାମର୍ଶ ଆପଣଙ୍କ ପାଇଁ ଲାଭଦାୟକ ହେବ । ନୂତନ ଦାୟିତ୍ୱ ଗ୍ରହଣ କରିବାକୁ ପ୍ରସ୍ତୁତ ରୁହନ୍ତୁ । ସମ୍ମାନ ଓ ପ୍ରତିଷ୍ଠା ବୃଦ୍ଧି ପାଇବ ।', remedy: 'ପ୍ରତିକାର: ଗରିବ ଲୋକଙ୍କୁ ଧଳା ମିଠା ଦାନ କରନ୍ତୁ ।' },
-            { key: '8', name: 'ବିଛା ରାଶି', eng: 'Scorpio', unicode: '🦂', color: 'ନାରଙ୍ଗୀ', number: 9, details: 'ଆଜି ଭାଗ୍ୟ ସମ୍ପୂର୍ଣ୍ଣ ଭାବେ ଆପଣଙ୍କ ସପକ୍ଷରେ ରହିବ । କମ୍ ପରିଶ୍ରମରେ ଅଧିକ ସଫଳତା ପାଇବାର ସମ୍ଭାବନା ଅଛି । ଧର୍ମ, କର୍ମ ଏବଂ ଆଧ୍ୟାତ୍ମିକ କାର୍ଯ୍ୟରେ ଆପଣଙ୍କର ରୁଚି ବଢ଼ିବ । କୌଣସି ତୀର୍ଥ ସ୍ଥାନକୁ ଯାତ୍ରା କରିବାର ସୁଯୋଗ ମିଳିପାରେ । ଉଚ୍ଚଶିକ୍ଷା ପାଇଁ ପ୍ରୟାସ କରୁଥିବା ବିଦ୍ୟାର୍ଥୀମାନଙ୍କୁ ଆଶାନୁରୂପ ସଫଳତା ମିଳିବ । ଗୁରୁଜନଙ୍କ ଆଶୀର୍ବାଦ ପ୍ରାପ୍ତ ହେବ ।', remedy: 'ପ୍ରତିକାର: ହନୁମାନ ଚାଳିଶା ପାଠ କରନ୍ତୁ ।' },
-            { key: '9', name: 'ଧନୁ ରାଶି', eng: 'Sagittarius', unicode: '🏹', color: 'ହଳଦିଆ', number: 3, details: 'ଆଜି ଦିନଟିରେ ଆପଣଙ୍କୁ ଅତ୍ୟନ୍ତ ସତର୍କତାର ସହିତ ଚଳିବାକୁ ପଡ଼ିବ । କୌଣସି ପ୍ରକାରର ଆକସ୍ମିକ ଦୁର୍ଘଟଣା କିମ୍ବା ଆଘାତର ସମ୍ଭାବନା ରହିଛି, ତେଣୁ ଯାନବାହନ ଚଳାଇବା ସମୟରେ ବିଶେଷ ସାବଧାନ ରୁହନ୍ତୁ । କୌଣସି ପ୍ରକାରର ବାଦ-ବିବାଦ କିମ୍ବା ଝଗଡ଼ାରୁ ନିଜକୁ ଦୂରେଇ ରଖନ୍ତୁ । ସ୍ୱାସ୍ଥ୍ୟ ସମ୍ବନ୍ଧୀୟ ସମସ୍ୟା ଦେଖାଦେଇପାରେ । ଗୁପ୍ତ କାର୍ଯ୍ୟ କିମ୍ବା ଗବେଷଣାରେ ସଫଳତା ମିଳିପାରେ ।', remedy: 'ପ୍ରତିକାର: ଭଗବାନ ବିଷ୍ଣୁଙ୍କୁ ହଳଦିଆ ଫୁଲ ଅର୍ପଣ କରନ୍ତୁ ।' },
-            { key: '0', name: 'ମକର ରାଶି', eng: 'Capricorn', unicode: '🐊', color: 'ନୀଳ', number: 8, details: 'ଆଜି ଆପଣଙ୍କ ଦାମ୍ପତ୍ୟ ଜୀବନ ଅତ୍ୟନ୍ତ ସୁଖମୟ ଏବଂ ମଧୁର ରହିବ । ଜୀବନସାଥୀଙ୍କ ସହଯୋଗରେ କୌଣସି ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ କାର୍ଯ୍ୟ ସମ୍ପନ୍ନ ହେବ । ବ୍ୟବସାୟରେ ଅଂଶୀଦାରମାନଙ୍କ ସହିତ ସମ୍ପର୍କରେ ଉନ୍ନତି ଆସିବ ଏବଂ ମିଳିତ ଭାବେ କୌଣସି ନୂଆ ଯୋଜନା ଆରମ୍ଭ କରିପାରନ୍ତି । ସାମାଜିକ ଜୀବନରେ ଆପଣଙ୍କର ଲୋକପ୍ରିୟତା ବଢ଼ିବ । ଅବିବାହିତ ବ୍ୟକ୍ତିମାନଙ୍କ ପାଇଁ ବିବାହର ଉତ୍ତମ ପ୍ରସ୍ତାବ ଆସିବାର ସମ୍ଭାବନା ରହିଛି ।', remedy: 'ପ୍ରତିକାର: କାଉକୁ ଖାଇବାକୁ ଦିଅନ୍ତୁ ।' },
-            { key: '-', name: 'କୁମ୍ଭ ରାଶି', eng: 'Aquarius', unicode: '🏺', color: 'କଳା', number: 8, details: 'ଆଜି ଆପଣ ନିଜର ଶତ୍ରୁମାନଙ୍କ ଉପରେ ବିଜୟୀ ହେବେ ଏବଂ ସେମାନଙ୍କର ସମସ୍ତ ଷଡଯନ୍ତ୍ରକୁ ବିଫଳ କରିଦେବେ । କର୍ମକ୍ଷେତ୍ରରେ କଠିନ ପରିଶ୍ରମ କରିବାକୁ ପଡିପାରେ, କିନ୍ତୁ ଆପଣଙ୍କର ପ୍ରଚେଷ୍ଟା ନିଶ୍ଚିତ ଭାବରେ ସଫଳ ହେବ । ଯଦି କୌଣସି ଋଣ ସମସ୍ୟା ଲାଗିରହିଛି, ତେବେ ତାହାର ସମାଧାନର ବାଟ ଫିଟିପାରେ । ସ୍ୱାସ୍ଥ୍ୟ ପ୍ରତି ସାମାନ୍ୟ ସଚେତନ ରୁହନ୍ତୁ, ବିଶେଷକରି ପେଟ ସମ୍ବନ୍ଧୀୟ ସମସ୍ୟା ଦେଖାଦେଇପାରେ ।', remedy: 'ପ୍ରତିକାର: ଶନି ମନ୍ଦିରରେ ତେଲ ଦାନ କରନ୍ତୁ ।' },
-            { key: '=', name: 'ମୀନ ରାଶି', eng: 'Pisces', unicode: '🐬', color: 'ହଳଦିଆ', number: 3, details: 'ଶିକ୍ଷା କ୍ଷେତ୍ରରେ ଜଡିତ ଛାତ୍ରଛାତ୍ରୀମାନଙ୍କ ପାଇଁ ଆଜି ଦିନଟି ଅତ୍ୟନ୍ତ ଶୁଭଫଳଦାୟୀ । ପରୀକ୍ଷା କିମ୍ବା ପ୍ରତିଯୋଗିତାରେ ସଫଳତା ମିଳିବାର ପ୍ରବଳ ଯୋଗ ରହିଛି । ସନ୍ତାନମାନଙ୍କ ପକ୍ଷରୁ କୌଣସି ଖୁସି ଖବର ମିଳିପାରେ, ଯାହା ଆପଣଙ୍କୁ ଗର୍ବିତ କରିବ । ପ୍ରେମ ସମ୍ପର୍କରେ ଘନିଷ୍ଠତା ବଢ଼ିବ । ନିଜର ସୃଜନଶୀଳତା ଏବଂ କଳାତ୍ମକ ପ୍ରତିଭାକୁ ପ୍ରଦର୍ଶନ କରିବା ପାଇଁ ଏହା ଏକ ଉତ୍ତମ ସୁଯୋଗ ।', remedy: 'ପ୍ରତିକାର: କପାଳରେ କେଶର କିମ୍ବା ହଳଦୀ ଟିକା ଲଗାନ୍ତୁ ।' },
-        ];
-        const displayDate = '୧୩ ଜୁଲାଇ ୨୦୨୫, ରବିବାର';
+  {
+    "key": "1",
+    "name": "ମେଷ ରାଶି",
+    "eng": "Aries",
+    "unicode": "🐏",
+    "color": "ନାଲି",
+    "number": 9,
+    "details": "ଆଜି ଦିନଟି ଆପଣଙ୍କ ପାଇଁ ମିଶ୍ରିତ ଫଳ ପ୍ରଦାନ କରିବ 🌪️। ଆର୍ଥିକ କ୍ଷେତ୍ରରେ କିଛି ଅପ୍ରତ୍ୟାଶିତ ଲାଭ ମିଳିପାରେ 💰, କିନ୍ତୁ ଅଯଥା ଖର୍ଚ୍ଚରୁ ଦୂରେଇ ରହିବାକୁ ପରାମର୍ଶ ଦିଆଯାଉଛି 💸। କର୍ମକ୍ଷେତ୍ରରେ ନିଜର କ୍ରୋଧକୁ ନିୟନ୍ତ୍ରଣରେ ରଖନ୍ତୁ 😠, ନଚେତ୍ ସହକର୍ମୀଙ୍କ ସହ ସମ୍ପର୍କରେ ତିକ୍ତତା ଆସିପାରେ 🤝। ପାରିବାରିକ ଜୀବନରେ କିଛି ମନୋମାଳିନ୍ୟ ଦେଖାଦେଇପାରେ, ତେଣୁ ବୁଝାମଣାର ସହ ପରିସ୍ଥିତିକୁ ସମ୍ଭାଳନ୍ତୁ 👨‍👩‍👧‍👦। ସ୍ୱାସ୍ଥ୍ୟ ପ୍ରତି ସଜାଗ ରହନ୍ତୁ 🏥, ବିଶେଷକରି ପେଟ ସମ୍ବନ୍ଧୀୟ ସମସ୍ୟା ଦେଖାଦେଇପାରେ 🦠। ଛାତ୍ରଛାତ୍ରୀମାନଙ୍କୁ ପାଠପଢାରେ ଅଧିକ ପରିଶ୍ରମ କରିବାକୁ ପଡିବ 📚। ଦୂରଯାତ୍ରା କରିବାର ଯୋଜନାକୁ ସ୍ଥଗିତ ରଖିବା ଭଲ ହେବ 🚗। ଆପଣଙ୍କୁ କୌଣସି କାରଣରୁ ମାନସିକ ଚାପ ଅନୁଭବ ହୋଇପାରେ 🧠, ତେଣୁ ଧୈର୍ଯ୍ୟହରା ହୁଅନ୍ତୁ ନାହିଁ 🧘‍♀️।",
+    "remedy": "ପ୍ରତିକାର: ହନୁମାନ ଚାଳିଶା ପାଠ କରନ୍ତୁ, ଏହା ଆପଣଙ୍କ ମନକୁ ଶାନ୍ତି ଦେବ 🕉️।"
+  },
+  {
+    "key": "2",
+    "name": "ବୃଷ ରାଶି",
+    "eng": "Taurus",
+    "unicode": "🐂",
+    "color": "ଧଳା",
+    "number": 6,
+    "details": "ଆଜି ଆପଣଙ୍କ ପାଇଁ ଦିନଟି ଅନୁକୂଳ ରହିବ 🌤️। କର୍ମକ୍ଷେତ୍ରରେ ଆପଣଙ୍କ କାର୍ଯ୍ୟର ପ୍ରଶଂସା ହେବ 🏆 ଏବଂ ନୂତନ ସୁଯୋଗ ମିଳିବାର ସମ୍ଭାବନା ଅଛି 📈। ଆର୍ଥିକ ସ୍ଥିତିରେ ସୁଧାର ଆସିବ 💵 ଏବଂ ପୂର୍ବରୁ କରିଥିବା ନିବେଶରୁ ଲାଭ ମିଳିପାରେ 📊। ପାରିବାରିକ ବାତାବରଣ ସୁଖମୟ ରହିବ 🏡 ଏବଂ ପ୍ରିୟଜନଙ୍କ ସହ ସମୟ ଅତିବାହିତ କରିବାର ସୁଯୋଗ ପାଇବେ 🥰। ଯେଉଁମାନେ ନୂତନ ବ୍ୟବସାୟ ଆରମ୍ଭ କରିବାକୁ ଚିନ୍ତା କରୁଛନ୍ତି, ସେମାନଙ୍କ ପାଇଁ ସମୟଟି ଉତ୍ତମ ଅଟେ 🚀। ସ୍ୱାସ୍ଥ୍ୟ ଭଲ ରହିବ 🏋️, କିନ୍ତୁ ବାହାର ଖାଦ୍ୟରୁ ଦୂରେଇ ରୁହନ୍ତୁ 🥗। ପ୍ରେମ ସମ୍ପର୍କରେ ମଧୁରତା ବଢ଼ିବ ❤️ ଏବଂ ସାଥୀଙ୍କ ସହ ବୁଝାମଣା ନିବିଡ଼ ହେବ 🤗। ଛାତ୍ରଛାତ୍ରୀମାନେ ପ୍ରତିଯୋଗିତାମୂଳକ ପରୀକ୍ଷାରେ ସଫଳତା ପାଇବେ 🎓।",
+    "remedy": "ପ୍ରତିକାର: ମା' ଲକ୍ଷ୍ମୀଙ୍କୁ ଏକ ଧଳା ଫୁଲ ଅର୍ପଣ କରନ୍ତୁ 🌸।"
+  },
+  {
+    "key": "3",
+    "name": "ମିଥୁନ ରାଶି",
+    "eng": "Gemini",
+    "unicode": "👫🏽",
+    "color": "ସବୁଜ",
+    "number": 5,
+    "details": "ଆଜି ଆପଣଙ୍କୁ କାର୍ଯ୍ୟକ୍ଷେତ୍ରରେ ଅଧିକ ସତର୍କ ରହିବାକୁ ପଡିବ ⚠️। କୌଣସି ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ନିଷ୍ପତ୍ତି ନେବା ପୂର୍ବରୁ ଭଲଭାବେ ଚିନ୍ତା କରନ୍ତୁ 🤔, ନଚେତ୍ ପରେ ଅନୁତାପ କରିବାକୁ ପଡିପାରେ 🥺। ଆର୍ଥିକ ଦୃଷ୍ଟିରୁ ଦିନଟି ସାମାନ୍ୟ ରହିବ 📉; ଅପ୍ରତ୍ୟାଶିତ ଖର୍ଚ୍ଚ ଆସିବାର ସମ୍ଭାବନା ଅଛି 💸। ବନ୍ଧୁମାନଙ୍କ ସହ କୌଣସି କଥାକୁ ନେଇ ମତଭେଦ ହୋଇପାରେ 🗣️, ତେଣୁ ନିଜ ବାଣୀ ଉପରେ ସଂଯମ ରଖନ୍ତୁ 🧏‍♂️। ପାରିବାରିକ ଜୀବନରେ ଶାନ୍ତି ବଜାୟ ରଖିବାକୁ ଚେଷ୍ଟା କରନ୍ତୁ 🧘‍♂️। ସ୍ୱାସ୍ଥ୍ୟ ସମ୍ବନ୍ଧରେ, ମାନସିକ ଚିନ୍ତା ଓ ଅବସାଦଠାରୁ ଦୂରେଇ ରୁହନ୍ତୁ 🧠। ଯାତ୍ରା ସମୟରେ ସାବଧାନତା ଅବଲମ୍ବନ କରନ୍ତୁ 🚦, ବିଶେଷକରି ଗାଡ଼ି ଚଳାଇବା ସମୟରେ 🚗। ଛାତ୍ରଛାତ୍ରୀମାନଙ୍କୁ ସେମାନଙ୍କର ଲକ୍ଷ୍ୟ ହାସଲ ପାଇଁ କଠିନ ପରିଶ୍ରମ କରିବାକୁ ପଡିବ 📚।",
+    "remedy": "ପ୍ରତିକାର: ଗାଈକୁ ସବୁଜ ଘାସ ଖାଇବାକୁ ଦିଅନ୍ତୁ 🌿।"
+  },
+  {
+    "key": "4",
+    "name": "କର୍କଟ ରାଶି",
+    "eng": "Cancer",
+    "unicode": "🦀",
+    "color": "କ୍ରିମ୍",
+    "number": 2,
+    "details": "ଆଜି ଦିନଟି ଆପଣଙ୍କ ପାଇଁ ଆନନ୍ଦମୟ ହେବ 🎉। ପରିବାରରେ କୌଣସି ଶୁଭ କାର୍ଯ୍ୟର ଆୟୋଜନ ହୋଇପାରେ 🎊। ଆର୍ଥିକ କ୍ଷେତ୍ରରେ ଉନ୍ନତି ପରିଲକ୍ଷିତ ହେବ 💵 ଏବଂ ପୁରୁଣା ନିବେଶରୁ ଭଲ ଲାଭ ପାଇବେ 📈। କର୍ମକ୍ଷେତ୍ରରେ ଆପଣଙ୍କର ପ୍ରଭାବ ବଢ଼ିବ 📈 ଏବଂ ଉପରିସ୍ଥ ଅଧିକାରୀଙ୍କ ସହଯୋଗ ମିଳିବ 👍। ସ୍ୱାସ୍ଥ୍ୟ ସାମାନ୍ୟ ଭଲ ରହିବ 🏥, ତଥାପି ଋତୁ ପରିବର୍ତ୍ତନଜନିତ ରୋଗରୁ ସତର୍କ ରୁହନ୍ତୁ 🤧। ପ୍ରେମ ସମ୍ବନ୍ଧ ପାଇଁ ଦିନଟି ଅନୁକୂଳ ଅଛି ❤️ ଏବଂ ସମ୍ପର୍କରେ ନୂଆପନ ଆସିବ 💕। ଛାତ୍ରଛାତ୍ରୀମାନେ ନିଜର ପ୍ରତିଭା ପ୍ରଦର୍ଶନ କରିବା ପାଇଁ ସୁଯୋଗ ପାଇବେ 🏆। ସାମାଜିକ କାର୍ଯ୍ୟରେ ଯୋଗଦେଇ ମାନ-ସମ୍ମାନ ପାଇବେ 🏅। କୌଣସି ଅତିଥିଙ୍କ ଆଗମନରେ ଘରର ବାତାବରଣ ଉତ୍ସବମୁଖର ହେବ 🎆।",
+    "remedy": "ପ୍ରତିକାର: ଭଗବାନ ଶିବଙ୍କୁ ଜଳ ଅର୍ପଣ କରନ୍ତୁ 🕉️।"
+  },
+  {
+    "key": "5",
+    "name": "ସିଂହ ରାଶି",
+    "eng": "Leo",
+    "unicode": "🦁",
+    "color": "ସୁନେଲି",
+    "number": 1,
+    "details": "ଆଜି ଆପଣଙ୍କ ପାଇଁ ଏକ ଆହ୍ୱାନପୂର୍ଣ୍ଣ ଦିନ ହୋଇପାରେ 🧗‍♂️। କର୍ମକ୍ଷେତ୍ରରେ କାର୍ଯ୍ୟଭାର ବଢ଼ିବ 📋 ଏବଂ ଏହା ଆପଣଙ୍କୁ ମାନସିକ ଚାପ ଦେଇପାରେ 😫। ଆର୍ଥିକ ମାମଲାରେ ସାବଧାନ ରୁହନ୍ତୁ 💰, କାହାକୁ ବିନା ବିଚାରରେ ଋଣ ଦିଅନ୍ତୁ ନାହିଁ 🙅‍♂️। ପାରିବାରିକ ଜୀବନରେ କିଛି ଅଶାନ୍ତି ଦେଖାଦେଇପାରେ 🤯, ତେଣୁ ଧୈର୍ଯ୍ୟର ସହ କାର୍ଯ୍ୟ କରନ୍ତୁ 🧘‍♂️। ଆପଣଙ୍କ ସ୍ୱାସ୍ଥ୍ୟ ଉପରେ ଧ୍ୟାନ ଦେବା ଜରୁରୀ 🏥, ବିଶେଷକରି ରକ୍ତଚାପ ସମ୍ବନ୍ଧୀୟ ସମସ୍ୟା ଥିଲେ 🩺। ଆଜି ଅଷ୍ଟମ ଚନ୍ଦ୍ର ଯୋଗୁଁ କୌଣସି ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ କାର୍ଯ୍ୟ ଆରମ୍ଭ କରନ୍ତୁ ନାହିଁ ⚠️। ଯାତ୍ରା କରିବା ସମୟରେ ଅଧିକ ସତର୍କତା ଆବଶ୍ୟକ 🚦। ଛାତ୍ରଛାତ୍ରୀମାନଙ୍କୁ ସେମାନଙ୍କର ପଢ଼ାରେ ଏକାଗ୍ରତା ବଜାୟ ରଖିବାକୁ ପଡିବ 🧠।",
+    "remedy": "ପ୍ରତିକାର: ସୂର୍ଯ୍ୟଦେବଙ୍କୁ ଜଳ ଅର୍ଘ୍ୟ ଦିଅନ୍ତୁ 🌅 ଏବଂ 'ଓଁ ସୂର୍ଯ୍ୟାୟ ନମଃ' ମନ୍ତ୍ର ଜପ କରନ୍ତୁ 🙏।"
+  },
+  {
+    "key": "6",
+    "name": "କନ୍ୟା ରାଶି",
+    "eng": "Virgo",
+    "unicode": "💃",
+    "color": "ନୀଳ",
+    "number": 5,
+    "details": "ଆଜିର ଦିନ ଆପଣଙ୍କ ପାଇଁ ଅନେକ ସକାରାତ୍ମକ ପରିବର୍ତ୍ତନ ଆଣିବ 🌱। ବ୍ୟବସାୟରେ ଆଶାଠାରୁ ଅଧିକ ଲାଭ ମିଳିବ 📈 ଏବଂ ନୂତନ ବ୍ୟବସାୟିକ ଚୁକ୍ତି ସ୍ୱାକ୍ଷରିତ ହୋଇପାରେ 🤝। କର୍ମକ୍ଷେତ୍ରରେ ଆପଣଙ୍କର ଯୋଜନାଗୁଡ଼ିକ ସଫଳ ହେବ 📅 ଏବଂ ଆପଣଙ୍କର କାର୍ଯ୍ୟଦକ୍ଷତା ପ୍ରଶଂସିତ ହେବ 💼। ଆର୍ଥିକ ସ୍ଥିତି ମଜବୁତ ରହିବ 💵 ଏବଂ ଆୟର ନୂଆ ଉତ୍ସ ସୃଷ୍ଟି ହୋଇପାରେ 💹। ପରିବାର ସଦସ୍ୟଙ୍କ ସହ ସମ୍ପର୍କ ମଧୁର ହେବ ❤️ ଏବଂ ସେମାନଙ୍କ ସହଯୋଗ ଆପଣଙ୍କୁ ଆଗକୁ ବଢ଼ିବାରେ ସାହାଯ୍ୟ କରିବ 😊। ସ୍ୱାସ୍ଥ୍ୟ ଦୃଷ୍ଟିରୁ ଦିନଟି ଭଲ ଅଛି 🏋️, ଆପଣ ଶାରୀରିକ ଓ ମାନସିକ ସ୍ତରରେ ସୁସ୍ଥ ଅନୁଭବ କରିବେ 💪। ପ୍ରେମ ଜୀବନରେ ଆନନ୍ଦ ଓ ଉତ୍ସାହ ଭରି ରହିବ ❤️।",
+    "remedy": "ପ୍ରତିକାର: ଭଗବାନ ଗଣେଶଙ୍କୁ ଦୂବ ଅର୍ପଣ କରନ୍ତୁ 🌿।"
+  },
+  {
+    "key": "7",
+    "name": "ତୁଳା ରାଶି",
+    "eng": "Libra",
+    "unicode": "⚖️",
+    "color": "ଗୋଲାପୀ",
+    "number": 6,
+    "details": "ଆଜି ଦିନଟି ଆପଣଙ୍କ ପାଇଁ ସାମାନ୍ୟ ରହିବ 📉। କର୍ମକ୍ଷେତ୍ରରେ କିଛି ଲୋକ ଆପଣଙ୍କ କାର୍ଯ୍ୟରେ ବାଧା ସୃଷ୍ଟି କରିବାକୁ ଚେଷ୍ଟା କରିପାରନ୍ତି 👀, ତେଣୁ ସତର୍କ ରୁହନ୍ତୁ 🧠। ଆର୍ଥିକ ନେଣଦେଣରେ ସାବଧାନତା ଅବଲମ୍ବନ କରନ୍ତୁ 📉, ନଚେତ୍ କ୍ଷତି ସହିବାକୁ ପଡିପାରେ 💸। ବନ୍ଧୁମାନଙ୍କ ସହ କୌଣସି ଯୋଜନା କରିବା ପୂର୍ବରୁ ଭଲ ଭାବରେ ବିଚାର କରନ୍ତୁ 🤔। ପାରିବାରିକ ଜୀବନରେ ଶାନ୍ତି ବଜାୟ ରଖିବା ପାଇଁ ଆପଣଙ୍କୁ କିଛି କଥାରେ ସାଲିସ କରିବାକୁ ପଡିପାରେ 🤝। ସ୍ୱାସ୍ଥ୍ୟ ସମ୍ବନ୍ଧରେ, ଆଖି ସମ୍ବନ୍ଧୀୟ ସମସ୍ୟା ଦେଖାଦେଇପାରେ 👁️, ତେଣୁ ଯତ୍ନବାନ ହୁଅନ୍ତୁ 🧴। ଛାତ୍ରଛାତ୍ରୀମାନେ ନିଜର ପରିଶ୍ରମ ଅନୁଯାୟୀ ଫଳ ପାଇବେ 📊। ଅନାବଶ୍ୟକ ଯୁକ୍ତିତର୍କରୁ ଦୂରେଇ ରୁହନ୍ତୁ 🤫।",
+    "remedy": "ପ୍ରତିକାର: ଶନି ମନ୍ଦିରରେ ତେଲ ଦାନ କରନ୍ତୁ 🕯️।"
+  },
+  {
+    "key": "8",
+    "name": "ବିଛା ରାଶି",
+    "eng": "Scorpio",
+    "unicode": "🦂",
+    "color": "କମଳା",
+    "number": 9,
+    "details": "ଆଜି ଆପଣଙ୍କ ପାଇଁ ଏକ ଭାଗ୍ୟଶାଳୀ ଦିନ ଅଟେ 🎁। ସରକାରୀ କାର୍ଯ୍ୟରେ ସଫଳତା ମିଳିବ ✅ ଏବଂ କୌଣସି ଅଟକି ରହିଥିବା କାମ ସମ୍ପୂର୍ଣ୍ଣ ହେବ 📌। ରାଜନୀତି ସହ ଜଡିତ ଥିବା ବ୍ୟକ୍ତିମାନଙ୍କ ପାଇଁ ଦିନଟି ଅତ୍ୟନ୍ତ ଶୁଭ ଅଟେ 🏛️। ଆର୍ଥିକ ସ୍ଥିତି ସୁଦୃଢ଼ ହେବ 💵 ଏବଂ ଆପଣ ମୂଲ୍ୟବାନ ଜିନିଷ କ୍ରୟ କରିପାରନ୍ତି 🛍️। ପରିବାରରେ ଆନନ୍ଦର ବାତାବରଣ ରହିବ 🎉 ଏବଂ କୌଣସି ମାଙ୍ଗଳିକ କାର୍ଯ୍ୟର ଯୋଜନା ହୋଇପାରେ 🎊। ସ୍ୱାସ୍ଥ୍ୟ ଭଲ ରହିବ 🏥 ଏବଂ ଆପଣ ଶକ୍ତି ଓ ଉତ୍ସାହରେ ପରିପୂର୍ଣ୍ଣ ରହିବେ ⚡। ଛାତ୍ରଛାତ୍ରୀମାନେ ଉଚ୍ଚଶିକ୍ଷା ପାଇଁ ଭଲ ସୁଯୋଗ ପାଇବେ 🎓। ତେବେ, ଗାଡ଼ି ଚଳାଇବା ସମୟରେ ସାବଧାନ ରହିବା ଜରୁରୀ 🚗।",
+    "remedy": "ପ୍ରତିକାର: ଭଗବାନ ଭୈରବଙ୍କୁ ଏକ ଇମର୍ତୀ ଅର୍ପଣ କରନ୍ତୁ 🕉️।"
+  },
+  {
+    "key": "9",
+    "name": "ଧନୁ ରାଶି",
+    "eng": "Sagittarius",
+    "unicode": "🏹",
+    "color": "ହଳଦିଆ",
+    "number": 3,
+    "details": "ଆଜିର ଦିନ ଆପଣଙ୍କୁ କିଛି ନୂଆ ଶିଖିବାର ସୁଯୋଗ ଦେବ 🎓। କର୍ମକ୍ଷେତ୍ରରେ ଆପଣଙ୍କର ଜ୍ଞାନ ଓ ଅଭିଜ୍ଞତାକୁ ବ୍ୟବହାର କରିବାର ସୁଯୋଗ ମିଳିବ 💡। ଆର୍ଥିକ ଦୃଷ୍ଟିରୁ ଦିନଟି ଲାଭଦାୟକ ରହିବ 📈, ବିଶେଷକରି ବ୍ୟବସାୟିକ କାରବାରରେ ସଫଳତା ମିଳିବ 🚀। ପରିବାରରେ ବାପା-ମାଆଙ୍କ ଆଶୀର୍ବାଦ ମିଳିବ 🙏 ଏବଂ ସେମାନଙ୍କ ସ୍ୱାସ୍ଥ୍ୟରେ ଉନ୍ନତି ଦେଖାଯିବ 🏥। ତେବେ, ସ୍ୱାସ୍ଥ୍ୟ ପ୍ରତି ଅବହେଳା କରନ୍ତୁ ନାହିଁ 🧠, ବିଶେଷକରି ବର୍ଷାରେ ଭିଜିବା ଠାରୁ ଦୂରେଇ ରୁହନ୍ତୁ 🌧️। ପ୍ରେମ ଜୀବନରେ କିଛି ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ବିଷୟରେ ଜୀବନସାଥୀଙ୍କ ସହ ଆଲୋଚନା ହୋଇପାରେ 🗣️, ଯାହା ସମ୍ପର୍କକୁ ମଜବୁତ କରିବ ❤️। ଅନାବଶ୍ୟକ ଭାବରେ ଅନ୍ୟମାନଙ୍କ ଉପରେ ନିଜ ମତ ଲଦିବାକୁ ଚେଷ୍ଟା କରନ୍ତୁ ନାହିଁ 🙅‍♂️।",
+    "remedy": "ପ୍ରତିକାର: ଅମାବାସ୍ୟା ଏବଂ ଶନିବାର ଦିନ ଶିବଲିଙ୍ଗ ଉପରେ କଳା ରାଶି ଅର୍ପଣ କରନ୍ତୁ 🕉️।"
+  },
+  {
+    "key": "0",
+    "name": "ମକର ରାଶି",
+    "eng": "Capricorn",
+    "unicode": "🐊",
+    "color": "ବାଇଗଣୀ",
+    "number": 8,
+    "details": "ଆଜି ଆପଣଙ୍କୁ ନିଜର ଭାବନା ଉପରେ ନିୟନ୍ତ୍ରଣ ରଖିବାକୁ ପଡିବ 🧠। କର୍ମକ୍ଷେତ୍ରରେ କୌଣସି ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ନିଷ୍ପତ୍ତି ନେବା ପୂର୍ବରୁ ଅଭିଜ୍ଞ ବ୍ୟକ୍ତିଙ୍କ ପରାମର୍ଶ ନିଅନ୍ତୁ 🤔। ଆର୍ଥିକ ସ୍ଥିତି ଭଲ ରହିବ 💵, କିନ୍ତୁ କୌଣସି ବଡ଼ ନିବେଶ କରିବା ପାଇଁ ସମୟ ଅନୁକୂଳ ନୁହେଁ 🚫। ପାରିବାରିକ ଜୀବନରେ ଜୀବନସାଥୀଙ୍କ ସ୍ୱାସ୍ଥ୍ୟକୁ ନେଇ ଚିନ୍ତା ବଢ଼ିପାରେ 🧠। ଆପଣଙ୍କ ବ୍ୟକ୍ତିତ୍ୱରେ ଉନ୍ନତି ଦେଖାଯିବ ✨ ଏବଂ ଲୋକମାନେ ଆପଣଙ୍କ ଦ୍ୱାରା ପ୍ରଭାବିତ ହେବେ 👥। ବ୍ୟବସାୟିକ ଯାତ୍ରା କରିବାର ସମ୍ଭାବନା ଅଛି 🚀, ଯାହା ଲାଭଦାୟକ ହୋଇପାରେ 💵। ଶତ୍ରୁମାନଙ୍କଠାରୁ ସତର୍କ ରୁହନ୍ତୁ 👀, କାରଣ ନିକଟତମ ଲୋକମାନେ ଆପଣଙ୍କୁ ବିଶ୍ୱାସଘାତକତା କରିପାରନ୍ତି 🕵️‍♂️।",
+    "remedy": "ପ୍ରତିକାର: ଶନିବାର ଦିନ ଗରିବ ଲୋକଙ୍କୁ ଖାଦ୍ୟ ଖୁଆନ୍ତୁ 🍱।"
+  },
+  {
+    "key": "-",
+    "name": "କୁମ୍ଭ ରାଶି",
+    "eng": "Aquarius",
+    "unicode": "🏺",
+    "color": "ଆକାଶୀ ନୀଳ",
+    "number": 8,
+    "details": "ଆଜି ଆପଣଙ୍କୁ ପରିଶ୍ରମର ଉଚିତ୍ ଫଳ ମିଳିବାରେ ବିଳମ୍ବ ହୋଇପାରେ ⏳, କିନ୍ତୁ ନିରାଶ ହୁଅନ୍ତୁ ନାହିଁ 🧘‍♂️। କର୍ମକ୍ଷେତ୍ରରେ ଧୈର୍ଯ୍ୟର ସହ କାମ କରନ୍ତୁ 💪, ସଫଳତା ନିଶ୍ଚୟ ମିଳିବ 🎯। ବ୍ୟାଙ୍କିଙ୍ଗ୍ ସମ୍ବନ୍ଧୀୟ କାର୍ଯ୍ୟରେ ସାବଧାନ ରହିବା ଆବଶ୍ୟକ ଅଟେ 🏦। ପିଲାମାନଙ୍କ ସହିତ ସମୟ ବିତାଇବା ଦ୍ୱାରା ମାନସିକ ଶାନ୍ତି ମିଳିବ 👨‍👧‍👦। ପ୍ରେମ ସମ୍ପର୍କରେ କିଛି ମତଭେଦ ଦେଖାଦେଇପାରେ 🗣️, ତେଣୁ ନିଜ ବାଣୀରେ ମଧୁରତା ରଖନ୍ତୁ 🥰। ସ୍ୱାସ୍ଥ୍ୟ ପ୍ରତି ସଜାଗ ରୁହନ୍ତୁ 🏥, ଛୋଟମୋଟ ସମସ୍ୟାକୁ ଅଣଦେଖା କରନ୍ତୁ ନାହିଁ 🧠। ଫାର୍ମାସ୍ୟୁଟିକାଲ୍ ବ୍ୟବସାୟରେ ଜଡିତ ବ୍ୟକ୍ତିଙ୍କ ପାଇଁ ସମୟ ଅନୁକୂଳ ରହିବ 💊। ଅନୈତିକ କାର୍ଯ୍ୟକଳାପରୁ ଦୂରେଇ ରୁହନ୍ତୁ 🚫।",
+    "remedy": "ପ୍ରତିକାର: ପ୍ରତିଦିନ 'ଓଁ ନମୋ ଭଗବତେ ବାସୁଦେବାୟ' ମନ୍ତ୍ର ଜପ କରନ୍ତୁ 🙏।"
+  },
+  {
+    "key": "=",
+    "name": "ମୀନ ରାଶି",
+    "eng": "Pisces",
+    "unicode": "🐬",
+    "color": "ହଳଦିଆ",
+    "number": 3,
+    "details": "ଆଜି ଦିନଟି ଆପଣଙ୍କ ପାଇଁ ଅତ୍ୟନ୍ତ ଶୁଭଫଳଦାୟୀ ହେବ ✅। କୌଣସି ବଡ଼ ସମସ୍ୟାର ସମାଧାନ ହେବାରୁ ଆପଣ ଆଶ୍ୱସ୍ତ ହେବେ 🧠। ଧାର୍ମିକ କାର୍ଯ୍ୟକଳାପରେ ଆପଣଙ୍କର ରୁଚି ବଢ଼ିବ 🕉️ ଏବଂ କୌଣସି ଧାର୍ମିକ ସ୍ଥାନକୁ ଯାତ୍ରା କରିପାରନ୍ତି 🕌। ସମସ୍ତ କାର୍ଯ୍ୟ ସୁରୁଖୁରୁରେ ସମ୍ପନ୍ନ ହେବ 📌 ଏବଂ ଆପଣଙ୍କ ମନ ପ୍ରସନ୍ନ ରହିବ 😊। ଆର୍ଥିକ କ୍ଷେତ୍ରରେ ମଧ୍ୟ ସକାରାତ୍ମକ ଫଳ ମିଳିବ 💵 ଏବଂ ଆପଣ ମୂଲ୍ୟବାନ ବସ୍ତୁ କିଣିପାରନ୍ତି 💎। ତେବେ, ଅତ୍ୟଧିକ ଆତ୍ମବିଶ୍ୱାସୀ ହୋଇ କୌଣସି କାର୍ଯ୍ୟ କରନ୍ତୁ ନାହିଁ 🧠। ଲୋକମାନେ ଆପଣଙ୍କ ପରାମର୍ଶରୁ ବହୁତ ଲାଭ ପାଇବେ 🤝। ନୂତନ ବ୍ୟବସାୟକୁ ବିସ୍ତାର କରିବାରେ ଆପଣ ସଫଳ ହେବେ 🚀।",
+    "remedy": "ପ୍ରତିକାର: ପ୍ରତିଦିନ 'ନମଃ ଶିବାୟ' ମନ୍ତ୍ର ଜପ କରନ୍ତୁ 🙏।"
+  }
+];
+
+        const displayDate = '୧୭ ଜୁଲାଇ ୨୦୨୫';
         const wheel = document.getElementById('zodiac-wheel');
         const contentContainer = document.querySelector('.content-container');
-        // MODIFIED: Get a reference to the new top banner
         const topDateBanner = document.getElementById('top-date-banner');
         const mainContainer = document.getElementById('main-container');
-        let wheelSize = 300;
-        let angleIncrement = 360 / rashiData.length;
         const backgroundAudio = document.getElementById('background-audio');
         const keypressAudio = document.getElementById('keypress-audio');
+        // ADDED: Getting the new audio element for emojis
+        const emojiAudio = document.getElementById('emoji-audio');
+        let wheelSize = 300;
+        let angleIncrement = 360 / rashiData.length;
         let continuousSpinInterval = null;
         let currentRotation = 0;
         let currentRashiIndex = -1;
+        let currentAnimationController = null;
+
+        const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+        async function playSymbolAnimation(rashi, signal) {
+            const displayEl = document.getElementById(`symbol-display-${rashi.key}`);
+            const remedyEl = document.getElementById(`remedy-display-${rashi.key}`);
+            const luckyEl = document.getElementById(`lucky-display-${rashi.key}`);
+
+            if (!displayEl) return;
+
+            displayEl.className = 'symbol-display';
+            displayEl.textContent = '';
+            if (remedyEl) remedyEl.style.opacity = '0';
+            if (luckyEl) luckyEl.style.opacity = '0';
+
+            displayEl.textContent = rashi.unicode;
+            displayEl.classList.add('anim-enter');
+            await sleep(1);
+            if (signal.aborted) return;
+
+            for (const item of rashi.animationSequence) {
+                if (signal.aborted) return;
+                const words = item.text.trim().split(/\s+/).filter(Boolean).length;
+                const delay = Math.max(1000, words * 320); 
+                await sleep(delay);
+                if (signal.aborted) return;
+
+                displayEl.classList.remove('anim-enter');
+                void displayEl.offsetWidth;
+                displayEl.textContent = item.symbol;
+                displayEl.classList.add('anim-enter');
+
+                // ADDED: Play the sound effect for the emoji
+                if (emojiAudio) {
+                    emojiAudio.currentTime = 0; // Rewind to start
+                    emojiAudio.play().catch(e => console.log("Emoji audio playback failed.", e));
+                }
+                
+                await sleep(1500);
+                if (signal.aborted) return;
+            }
+
+            await sleep(1000);
+            if (signal.aborted) return;
+
+            // Animate the last emoji out
+            displayEl.classList.remove('anim-enter');
+            displayEl.classList.add('anim-exit');
+            await sleep(400);
+            if (signal.aborted) return;
+
+            // Animate the main Rashi symbol back IN and keep it there
+            displayEl.classList.remove('anim-exit');
+            displayEl.textContent = rashi.unicode;
+            displayEl.classList.add('anim-enter');
+
+            // --- SEQUENTIAL EXTRA INFO ---
+            await sleep(500);
+            if (signal.aborted) return;
+
+            if (luckyEl) {
+                luckyEl.style.opacity = '1';
+                await sleep(1200); // Show lucky first, then remedy
+                if (signal.aborted) return;
+            }
+
+            if (remedyEl) {
+                remedyEl.style.opacity = '1';
+            }
+        }
         
         function setupWheel() {
             wheelSize = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--wheel-size'));
@@ -294,6 +511,7 @@
             activeDisplay.id = 'active-sign-display';
             center.appendChild(activeDisplay);
             wheel.appendChild(center);
+            
             for (let i = 0; i < 6; i++) {
                 const divider = document.createElement('div');
                 divider.className = 'divider';
@@ -302,17 +520,16 @@
             }
             const iconRadius = wheelSize / 2 * 0.79; 
             const labelRadius = wheelSize / 2 + 40;
+
             rashiData.forEach((rashi, i) => {
                 const angleRad = (i * angleIncrement - 90) * (Math.PI / 180);
                 const iconX = iconRadius * Math.cos(angleRad) + wheelSize / 2;
                 const iconY = iconRadius * Math.sin(angleRad) + wheelSize / 2;
                 const signEl = document.createElement('div');
-                signEl.className = 'sign';
-                signEl.id = `sign-${i}`;
-                signEl.innerHTML = rashi.unicode;
-                signEl.style.left = `${iconX}px`;
-                signEl.style.top = `${iconY}px`;
-                wheel.appendChild(signEl);
+                signEl.className = 'sign'; signEl.id = `sign-${i}`;
+                signEl.innerHTML = rashi.unicode; signEl.style.left = `${iconX}px`;
+                signEl.style.top = `${iconY}px`; wheel.appendChild(signEl);
+                
                 if (window.innerWidth > 900) {
                     const labelX = labelRadius * Math.cos(angleRad) + wheelSize / 2;
                     const labelY = labelRadius * Math.sin(angleRad) + wheelSize / 2;
@@ -324,28 +541,50 @@
                     labelEl.style.top = `${labelY}px`;
                     wheel.appendChild(labelEl);
                 }
+
+                rashi.animationSequence = [];
+                const emojiRegex = /(\p{Emoji_Presentation}|\p{Extended_Pictographic})/gu;
+                const parts = rashi.details.split(emojiRegex);
+                for (let j = 0; j < parts.length - 1; j += 2) {
+                    rashi.animationSequence.push({ text: parts[j], symbol: parts[j + 1] });
+                }
+
                 const panelEl = document.createElement('div');
                 panelEl.className = 'content-panel';
                 panelEl.id = `panel-${rashi.key}`;
                 panelEl.innerHTML = `
-                    <p class="rashi-date">ତାରିଖ: ${displayDate}</p>
-                    <h1 class="rashi-title"><span class="unicode-symbol">${rashi.unicode}</span>${rashi.name} <span class="english-name">(${rashi.eng})</span></h1>
-                    <p class="rashi-description">${rashi.details}</p>
-                    <p class="pratikar">${rashi.remedy}</p>
-                    <p class="rashi-luck">ଶୁଭ ରଙ୍ଗ: ${rashi.color}<br>ଶୁଭ ସଂଖ୍ୟା: ${rashi.number}</p>
+                    <div>
+                        <p class="rashi-date">ତାରିଖ: ${displayDate}</p>
+                        <h1 class="rashi-title"><span class="unicode-symbol">${rashi.unicode}</span>${rashi.name} <span class="english-name">(${rashi.eng})</span></h1>
+                    </div>
+                    <div class="rashi-description">
+                        <div class="symbol-display" id="symbol-display-${rashi.key}"></div>
+                    </div>
+                    <div class="extra-info-container">
+                        <div class="extra-item" id="lucky-display-${rashi.key}">
+                            <span class="extra-symbol lucky-text">🍀</span>
+                            <span class="extra-text lucky-text">ଶୁଭ ରଙ୍ଗ: ${rashi.color}</span>
+                        </div>
+                        <div class="extra-item" id="remedy-display-${rashi.key}">
+                            <span class="extra-symbol remedy-text">🛡️</span>
+                            <span class="extra-text remedy-text">${rashi.remedy.replace('ପ୍ରତିକାର: ', '')}</span>
+                        </div>                        
+                    </div>
                 `;
                 contentContainer.appendChild(panelEl);
             });
         }
         
-        // --- MODIFIED: CORE FUNCTION TO SELECT AND DISPLAY RASHI WITH SEPARATE LAYOUTS ---
         function selectRashi(key) {
+            if (currentAnimationController) {
+                currentAnimationController.abort();
+            }
+
             const instructionsPanel = document.getElementById('instructions-panel');
             const activeSignDisplay = document.getElementById('active-sign-display');
 
             if (instructionsPanel.classList.contains('active')) {
-                // This is the very first interaction
-                if (key !== 'a') return; // Only 'a' (tap) can start
+                if (key !== 'a') return; 
                 backgroundAudio.play().catch(e => console.log("Audio play failed"));
                 instructionsPanel.classList.remove('active');
                 instructionsPanel.style.display = 'none';
@@ -353,12 +592,9 @@
                 mainContainer.style.animation = 'fadeIn 0.5s';
             }
             
-            // Stop animations and prepare for new selection
             clearInterval(continuousSpinInterval);
             wheel.style.transition = 'transform 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55)';
             document.querySelectorAll('.sign, .sign-label, .wheel-center').forEach(el => el.style.transition = 'transform 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55)');
-
-            // Hide currently active elements
             activeSignDisplay.classList.remove('visible');
             document.querySelectorAll('.content-panel').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.sign, .sign-label').forEach(el => el.classList.remove('highlight'));
@@ -366,15 +602,12 @@
             const rashiIndex = rashiData.findIndex(r => r.key === key);
             
             if (rashiIndex > -1) {
-                // === RASHI STATE (1, 2, 3...) ===
-                // On Rashi selection, hide the top banner and center the layout.
+                const rashi = rashiData[rashiIndex];
                 topDateBanner.style.display = 'none';
                 document.body.style.justifyContent = 'center';
                 document.body.style.paddingTop = '0';
-                
                 currentRashiIndex = rashiIndex;
-                keypressAudio.currentTime = 0;
-                keypressAudio.play();
+                keypressAudio.currentTime = 0; keypressAudio.play();
                 currentRotation = -(rashiIndex * angleIncrement);
                 document.getElementById(`panel-${key}`).classList.add('active');
                 document.getElementById(`sign-${rashiIndex}`).classList.add('highlight');
@@ -385,15 +618,13 @@
                     activeSignDisplay.innerHTML = rashiData[rashiIndex].unicode;
                     activeSignDisplay.classList.add('visible');
                 }, 200);
-
+                currentAnimationController = new AbortController();
+                playSymbolAnimation(rashi, currentAnimationController.signal);
             } else if (key === 'a') {
-                // === HOME PAGE STATE ('A') ===
-                // For 'A' state, show the banner and align the layout to the top.
                 topDateBanner.style.display = 'block';
                 document.body.style.justifyContent = 'flex-start';
-                document.body.style.paddingTop = '2vh'; // Add some space at the top
-
-                currentRashiIndex = -1; // No specific rashi is selected
+                document.body.style.paddingTop = '2vh'; 
+                currentRashiIndex = -1; 
                 currentRotation = 0;
                 document.getElementById('panel-A').classList.add('active');
                 setTimeout(() => {
@@ -401,14 +632,12 @@
                     activeSignDisplay.classList.add('visible');
                 }, 200);
             } else {
-                return; // Ignore other keys
+                return; 
             }
 
-            // This part is the same for both states: update wheel rotation
             wheel.style.transform = `rotate(${currentRotation}deg)`;
             document.documentElement.style.setProperty('--sign-counter-rotation', `${-currentRotation}deg`);
             
-            // Restart the slow spin after the main animation finishes
             setTimeout(() => {
                 wheel.style.transition = 'none';
                 document.querySelectorAll('.sign, .sign-label, .wheel-center').forEach(el => el.style.transition = 'none');
@@ -420,7 +649,6 @@
             }, 1300);
         }
 
-        // --- EVENT LISTENERS (UNCHANGED) ---
         let lastTapTime = 0;
         let touchStartX = 0, touchStartY = 0, touchEndX = 0, touchEndY = 0;
         document.addEventListener('keydown', (e) => selectRashi(e.key.toLowerCase()));
@@ -439,18 +667,13 @@
         function handleGesture() {
             const instructionsPanel = document.getElementById('instructions-panel');
             const diffX = touchEndX - touchStartX; const diffY = touchEndY - touchStartY;
-            if (Math.abs(diffX) < 10 && Math.abs(diffY) < 10) { // It's a tap
-                if (instructionsPanel.classList.contains('active')) { 
-                    selectRashi('a'); // Start with the 'A' home panel
-                } 
-                return; 
+            if (Math.abs(diffX) < 10 && Math.abs(diffY) < 10) { 
+                if (instructionsPanel.classList.contains('active')) { selectRashi('a'); } return; 
             }
-            if (Math.abs(diffX) > Math.abs(diffY)) { // Horizontal swipe
+            if (Math.abs(diffX) > Math.abs(diffY)) { 
                 if (instructionsPanel.classList.contains('active')) return;
-                if (diffX > 50) { // Swipe Right
-                    const prevIndex = (currentRashiIndex - 1 + rashiData.length) % rashiData.length; selectRashi(rashiData[prevIndex].key); } 
-                else if (diffX < -50) { // Swipe Left
-                    const nextIndex = (currentRashiIndex + 1) % rashiData.length; selectRashi(rashiData[nextIndex].key); }
+                if (diffX > 50) { const prevIndex = (currentRashiIndex - 1 + rashiData.length) % rashiData.length; selectRashi(rashiData[prevIndex].key); } 
+                else if (diffX < -50) { const nextIndex = (currentRashiIndex + 1) % rashiData.length; selectRashi(rashiData[nextIndex].key); }
             }
         }
         
